@@ -90,7 +90,7 @@ const ProductGridListSingle = ({
                     target="_blank"
                   >
                     {" "}
-                    THÊM VÀO GIỎ{" "}
+                    HÀNG SẮP VỀ{" "}
                   </a>
                 ) : product.variation && product.variation.length >= 1 ? (
                   <Link to={`${process.env.PUBLIC_URL}/product/${product.id}`}>
@@ -106,18 +106,18 @@ const ProductGridListSingle = ({
                     }
                     disabled={cartItem !== undefined && cartItem.quantity > 0}
                     title={
-                      cartItem !== undefined ? "Added to cart" : "Add to cart"
+                      cartItem !== undefined ? "Added to cart" : "Thêm vào giỏ"
                     }
                   >
                     {" "}
                     <i className="pe-7s-cart"></i>{" "}
                     {cartItem !== undefined && cartItem.quantity > 0
                       ? "Added"
-                      : "Add to cart"}
+                      : "Thêm vào giỏ"}
                   </button>
                 ) : (
                   <button disabled className="active">
-                    Out of Stock
+                    Hết hàng
                   </button>
                 )}
               </div>
@@ -236,7 +236,7 @@ const ProductGridListSingle = ({
                         target="_blank"
                       >
                         {" "}
-                        THÊM VÀO GIỎ{" "}
+                        HÀNG SẮP VỀ{" "}
                       </a>
                     ) : product.variation && product.variation.length >= 1 ? (
                       <Link
@@ -258,18 +258,18 @@ const ProductGridListSingle = ({
                         title={
                           cartItem !== undefined
                             ? "Added to cart"
-                            : "Add to cart"
+                            : "Thêm vào giỏ"
                         }
                       >
                         {" "}
                         <i className="pe-7s-cart"></i>{" "}
                         {cartItem !== undefined && cartItem.quantity > 0
                           ? "Added"
-                          : "Add to cart"}
+                          : "Thêm vào giỏ"}
                       </button>
                     ) : (
                       <button disabled className="active">
-                        Out of Stock
+                        Hết hàng
                       </button>
                     )}
                   </div>

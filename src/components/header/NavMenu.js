@@ -279,7 +279,7 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
                     </Link>
                   </li>
                   <li>
-                    <Link to={process.env.PUBLIC_URL + "/product-slider/1"}>
+                    <Link to={PUBLIC_URL + "/product-slider/1"}>
                       {strings["product_slider"]}
                     </Link>
                   </li>
@@ -389,6 +389,11 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
             </ul>
           </li>
           <li>
+            <Link to={process.env.PUBLIC_URL + "/contact"}>
+              {strings["contact_us"]}
+            </Link>
+          </li>
+          <li>
             <Link to={process.env.PUBLIC_URL + "/blog-standard"}>
               {strings["blog"]}
               {sidebarMenu ? (
@@ -421,11 +426,6 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
                 </Link>
               </li>
             </ul>
-          </li>
-          <li>
-            <Link to={process.env.PUBLIC_URL + "/contact"}>
-              {strings["contact_us"]}
-            </Link>
           </li>
         </ul>
       </nav>

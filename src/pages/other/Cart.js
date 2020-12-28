@@ -52,19 +52,19 @@ const Cart = ({
           <div className="container">
             {cartItems && cartItems.length >= 1 ? (
               <Fragment>
-                <h3 className="cart-page-title">Your cart items</h3>
+                <h3 className="cart-page-title">Giỏ hàng</h3>
                 <div className="row">
                   <div className="col-12">
                     <div className="table-content table-responsive cart-table-content">
                       <table>
                         <thead>
                           <tr>
-                            <th>Image</th>
-                            <th>Product Name</th>
-                            <th>Unit Price</th>
-                            <th>Qty</th>
-                            <th>Subtotal</th>
-                            <th>action</th>
+                            <th></th>
+                            <th>Sản phẩm</th>
+                            <th>Đơn giá</th>
+                            <th>Số lượng</th>
+                            <th>Tổng tiền</th>
+                            <th>Xóa</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -82,9 +82,9 @@ const Cart = ({
 
                             discountedPrice != null
                               ? (cartTotalPrice +=
-                                  finalDiscountedPrice * cartItem.quantity)
+                                finalDiscountedPrice * cartItem.quantity)
                               : (cartTotalPrice +=
-                                  finalProductPrice * cartItem.quantity);
+                                finalProductPrice * cartItem.quantity);
                             return (
                               <tr key={key}>
                                 <td className="product-thumbnail">
@@ -117,18 +117,18 @@ const Cart = ({
                                     {cartItem.name}
                                   </Link>
                                   {cartItem.selectedProductColor &&
-                                  cartItem.selectedProductSize ? (
-                                    <div className="cart-item-variation">
-                                      <span>
-                                        Color: {cartItem.selectedProductColor}
-                                      </span>
-                                      <span>
-                                        Size: {cartItem.selectedProductSize}
-                                      </span>
-                                    </div>
-                                  ) : (
-                                    ""
-                                  )}
+                                    cartItem.selectedProductSize ? (
+                                      <div className="cart-item-variation">
+                                        <span>
+                                          Color: {cartItem.selectedProductColor}
+                                        </span>
+                                        <span>
+                                          Size: {cartItem.selectedProductSize}
+                                        </span>
+                                      </div>
+                                    ) : (
+                                      ""
+                                    )}
                                 </td>
 
                                 <td className="product-price-cart">
@@ -144,11 +144,11 @@ const Cart = ({
                                       </span>
                                     </Fragment>
                                   ) : (
-                                    <span className="amount">
-                                      {currency.currencySymbol +
-                                        finalProductPrice}
-                                    </span>
-                                  )}
+                                      <span className="amount">
+                                        {currency.currencySymbol +
+                                          finalProductPrice}
+                                      </span>
+                                    )}
                                 </td>
 
                                 <td className="product-quantity">
@@ -180,11 +180,11 @@ const Cart = ({
                                         cartItem !== undefined &&
                                         cartItem.quantity &&
                                         cartItem.quantity >=
-                                          cartItemStock(
-                                            cartItem,
-                                            cartItem.selectedProductColor,
-                                            cartItem.selectedProductSize
-                                          )
+                                        cartItemStock(
+                                          cartItem,
+                                          cartItem.selectedProductColor,
+                                          cartItem.selectedProductSize
+                                        )
                                       }
                                     >
                                       +
@@ -194,13 +194,13 @@ const Cart = ({
                                 <td className="product-subtotal">
                                   {discountedPrice !== null
                                     ? currency.currencySymbol +
-                                      (
-                                        finalDiscountedPrice * cartItem.quantity
-                                      ).toFixed(2)
+                                    (
+                                      finalDiscountedPrice * cartItem.quantity
+                                    ).toFixed(2)
                                     : currency.currencySymbol +
-                                      (
-                                        finalProductPrice * cartItem.quantity
-                                      ).toFixed(2)}
+                                    (
+                                      finalProductPrice * cartItem.quantity
+                                    ).toFixed(2)}
                                 </td>
 
                                 <td className="product-remove">
@@ -227,12 +227,12 @@ const Cart = ({
                         <Link
                           to={process.env.PUBLIC_URL + "/shop-grid-standard"}
                         >
-                          Continue Shopping
+                          Tiếp tục mua sắm
                         </Link>
                       </div>
                       <div className="cart-clear">
                         <button onClick={() => removeAllFromCart(addToast)}>
-                          Clear Shopping Cart
+                          Xóa giỏ hàng
                         </button>
                       </div>
                     </div>
@@ -244,40 +244,50 @@ const Cart = ({
                     <div className="cart-tax">
                       <div className="title-wrap">
                         <h4 className="cart-bottom-title section-bg-gray">
-                          Estimate Shipping And Tax
+                          Ước tính Vận chuyển và Thuế
                         </h4>
                       </div>
                       <div className="tax-wrapper">
                         <p>
-                          Enter your destination to get a shipping estimate.
+                          Nhập điểm nhận hàng của bạn để nhận ước tính vận chuyển.
                         </p>
                         <div className="tax-select-wrapper">
                           <div className="tax-select">
-                            <label>* Country</label>
+                            <label>* Tỉnh/ Thành phố</label>
                             <select className="email s-email s-wid">
-                              <option>Bangladesh</option>
-                              <option>Albania</option>
-                              <option>Åland Islands</option>
-                              <option>Afghanistan</option>
-                              <option>Belgium</option>
+                              <option>Hồ Chí Minh</option>
+                              <option>Đà Nẵng</option>
+                              <option>Hà Nội</option>
+                              <option>Vũng Tàu</option>
+                              <option>Đà Lạt</option>
                             </select>
                           </div>
                           <div className="tax-select">
-                            <label>* Region / State</label>
+                            <label>* Quận/ Huyện</label>
                             <select className="email s-email s-wid">
-                              <option>Bangladesh</option>
-                              <option>Albania</option>
-                              <option>Åland Islands</option>
-                              <option>Afghanistan</option>
-                              <option>Belgium</option>
+                              <option>Quận 1</option>
+                              <option>Quận 3</option>
+                              <option>Quận 5</option>
+                              <option>Quận Tân Bình</option>
+                              <option>Quận Tân Phú</option>
                             </select>
                           </div>
                           <div className="tax-select">
+                            <label>* Phường/ Xã</label>
+                            <select className="email s-email s-wid">
+                              <option>Phường 1</option>
+                              <option>Phường 2</option>
+                              <option>Phường 3</option>
+                              <option>Phường 4</option>
+                              <option>Phường 5</option>
+                            </select>
+                          </div>
+                          {/* <div className="tax-select">
                             <label>* Zip/Postal Code</label>
                             <input type="text" />
-                          </div>
+                          </div> */}
                           <button className="cart-btn-2" type="submit">
-                            Get A Quote
+                            Nhận báo giá
                           </button>
                         </div>
                       </div>
@@ -288,15 +298,15 @@ const Cart = ({
                     <div className="discount-code-wrapper">
                       <div className="title-wrap">
                         <h4 className="cart-bottom-title section-bg-gray">
-                          Use Coupon Code
+                          Sử dụng mã phiếu giảm giá
                         </h4>
                       </div>
                       <div className="discount-code">
-                        <p>Enter your coupon code if you have one.</p>
+                        <p>Nhập mã phiếu giảm giá của bạn nếu có.</p>
                         <form>
                           <input type="text" required name="name" />
                           <button className="cart-btn-2" type="submit">
-                            Apply Coupon
+                            Áp dụng phiếu giảm giá
                           </button>
                         </form>
                       </div>
@@ -307,46 +317,46 @@ const Cart = ({
                     <div className="grand-totall">
                       <div className="title-wrap">
                         <h4 className="cart-bottom-title section-bg-gary-cart">
-                          Cart Total
+                          Tổng tiền
                         </h4>
                       </div>
                       <h5>
-                        Total products{" "}
+                        Tạm tính{" "}
                         <span>
                           {currency.currencySymbol + cartTotalPrice.toFixed(2)}
                         </span>
                       </h5>
 
                       <h4 className="grand-totall-title">
-                        Grand Total{" "}
+                        Tổng cộng{" "}
                         <span>
                           {currency.currencySymbol + cartTotalPrice.toFixed(2)}
                         </span>
                       </h4>
                       <Link to={process.env.PUBLIC_URL + "/checkout"}>
-                        Proceed to Checkout
+                        Tiến hành đặt hàng
                       </Link>
                     </div>
                   </div>
                 </div>
               </Fragment>
             ) : (
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="item-empty-area text-center">
-                    <div className="item-empty-area__icon mb-30">
-                      <i className="pe-7s-cart"></i>
-                    </div>
-                    <div className="item-empty-area__text">
-                      No items found in cart <br />{" "}
-                      <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
-                        Shop Now
+                <div className="row">
+                  <div className="col-lg-12">
+                    <div className="item-empty-area text-center">
+                      <div className="item-empty-area__icon mb-30">
+                        <i className="pe-7s-cart"></i>
+                      </div>
+                      <div className="item-empty-area__text">
+                        No items found in cart <br />{" "}
+                        <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+                          Shop Now
                       </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
           </div>
         </div>
       </LayoutOne>

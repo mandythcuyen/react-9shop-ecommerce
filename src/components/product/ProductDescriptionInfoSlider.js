@@ -71,7 +71,7 @@ const ProductDescriptionInfoSlider = ({
       {product.variation ? (
         <div className="pro-details-size-color justify-content-center">
           <div className="pro-details-color-wrap">
-            <span>Color</span>
+            <span>Màu sắc</span>
             <div className="pro-details-color-content">
               {product.variation.map((single, key) => {
                 return (
@@ -100,7 +100,7 @@ const ProductDescriptionInfoSlider = ({
             </div>
           </div>
           <div className="pro-details-size">
-            <span>Size</span>
+            <span>Kích thước</span>
             <div className="pro-details-size-content">
               {product.variation &&
                 product.variation.map(single => {
@@ -145,7 +145,7 @@ const ProductDescriptionInfoSlider = ({
               rel="noopener noreferrer"
               target="_blank"
             >
-              THÊM VÀO GIỎ
+              HÀNG SẮP VỀ
             </a>
           </div>
         </div>
@@ -194,10 +194,10 @@ const ProductDescriptionInfoSlider = ({
                 disabled={productCartQty >= productStock}
               >
                 {" "}
-                Add To Cart{" "}
+                Thêm vào giỏ{" "}
               </button>
             ) : (
-              <button disabled>Out of Stock</button>
+              <button disabled>Hết hàng</button>
             )}
           </div>
           <div className="pro-details-wishlist">
@@ -232,7 +232,7 @@ const ProductDescriptionInfoSlider = ({
       )}
       {product.category ? (
         <div className="pro-details-meta justify-content-center">
-          <span>Categories :</span>
+          <span>Danh mục sản phẩm :</span>
           <ul>
             {product.category.map((single, key) => {
               return (

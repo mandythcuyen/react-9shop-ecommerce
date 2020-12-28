@@ -27,17 +27,16 @@ const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
                 <div className="product-anotherinfo-wrapper">
                   <ul>
                     <li>
-                      <span>Weight</span> 400 g
+                      <span>Trọng lượng</span> 400 g
                     </li>
                     <li>
-                      <span>Dimensions</span>10 x 10 x 15 cm{" "}
+                      <span>Kích thước</span>10 x 10 x 15 cm{" "}
                     </li>
                     <li>
-                      <span>Materials</span> 60% cotton, 40% polyester
+                      <span>Chất liệu</span> 60% cotton, 40% polyester
                     </li>
                     <li>
-                      <span>Other Info</span> American heirloom jean shorts pug
-                      seitan letterpress
+                      <span>Thông tin khác</span> Nhập khẩu từ Mỹ
                     </li>
                   </ul>
                 </div>

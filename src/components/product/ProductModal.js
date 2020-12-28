@@ -169,7 +169,7 @@ function ProductModal(props) {
                 {product.variation ? (
                   <div className="pro-details-size-color">
                     <div className="pro-details-color-wrap">
-                      <span>Color</span>
+                      <span>Màu sắc</span>
                       <div className="pro-details-color-content">
                         {product.variation.map((single, key) => {
                           return (
@@ -200,7 +200,7 @@ function ProductModal(props) {
                       </div>
                     </div>
                     <div className="pro-details-size">
-                      <span>Size</span>
+                      <span>Kích thước</span>
                       <div className="pro-details-size-content">
                         {product.variation &&
                           product.variation.map(single => {
@@ -250,7 +250,7 @@ function ProductModal(props) {
                         rel="noopener noreferrer"
                         target="_blank"
                       >
-                        THÊM VÀO GIỎ
+                        HÀNG SẮP VỀ
                       </a>
                     </div>
                   </div>
@@ -301,10 +301,10 @@ function ProductModal(props) {
                           disabled={productCartQty >= productStock}
                         >
                           {" "}
-                          Add To Cart{" "}
+                          Thêm vào giỏ{" "}
                         </button>
                       ) : (
-                        <button disabled>Out of Stock</button>
+                        <button disabled>Hết hàng</button>
                       )}
                     </div>
                     <div className="pro-details-wishlist">

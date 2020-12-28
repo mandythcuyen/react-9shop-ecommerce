@@ -49,7 +49,7 @@ const Compare = ({
                       <table className="table table-bordered mb-0">
                         <tbody>
                           <tr>
-                            <th className="title-column">Product Info</th>
+                            <th className="title-column">Thông tin sản phẩm</th>
                             {compareItems.map((compareItem, key) => {
                               const cartItem = cartItems.filter(
                                 item => item.id === compareItem.id
@@ -101,7 +101,7 @@ const Compare = ({
                                         target="_blank"
                                       >
                                         {" "}
-                                        THÊM VÀO GIỎ{" "}
+                                        HÀNG SẮP VỀ{" "}
                                       </a>
                                     ) : compareItem.variation &&
                                       compareItem.variation.length >= 1 ? (
@@ -129,17 +129,17 @@ const Compare = ({
                                         title={
                                           compareItem !== undefined
                                             ? "Added to cart"
-                                            : "Add to cart"
+                                            : "Thêm vào giỏ"
                                         }
                                       >
                                         {cartItem !== undefined &&
                                         cartItem.quantity > 0
                                           ? "Added"
-                                          : "Add to cart"}
+                                          : "Thêm vào giỏ"}
                                       </button>
                                     ) : (
                                       <button disabled className="active">
-                                        Out of Stock
+                                        Hết hàng
                                       </button>
                                     )}
                                   </div>
@@ -148,7 +148,7 @@ const Compare = ({
                             })}
                           </tr>
                           <tr>
-                            <th className="title-column">Price</th>
+                            <th className="title-column">Giá tiền</th>
                             {compareItems.map((compareItem, key) => {
                               const discountedPrice = getDiscountPrice(
                                 compareItem.price,
@@ -185,7 +185,7 @@ const Compare = ({
                           </tr>
 
                           <tr>
-                            <th className="title-column">Description</th>
+                            <th className="title-column">Mô tả</th>
                             {compareItems.map((compareItem, key) => {
                               return (
                                 <td className="product-desc" key={key}>

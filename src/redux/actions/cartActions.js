@@ -3,7 +3,7 @@ export const DECREASE_QUANTITY = "DECREASE_QUANTITY";
 export const DELETE_FROM_CART = "DELETE_FROM_CART";
 export const DELETE_ALL_FROM_CART = "DELETE_ALL_FROM_CART";
 
-//add to cart
+//Thêm vào giỏ
 export const addToCart = (
   item,
   addToast,

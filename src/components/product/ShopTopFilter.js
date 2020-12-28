@@ -21,7 +21,7 @@ const ShopTopFilter = ({ products, getSortParams }) => {
           {/* Product Filter */}
           <div className="col-md-3 col-sm-6 col-xs-12 mb-30">
             <div className="product-filter">
-              <h5>Categories</h5>
+              <h5>Danh mục sản phẩm</h5>
               {uniqueCategories ? (
                 <ul>
                   {uniqueCategories.map((category, key) => {
@@ -40,7 +40,7 @@ const ShopTopFilter = ({ products, getSortParams }) => {
                   })}
                 </ul>
               ) : (
-                "No categories found"
+                "Không có danh mục nào được tìm thấy"
               )}
             </div>
           </div>

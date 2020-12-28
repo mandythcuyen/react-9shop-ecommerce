@@ -49,18 +49,18 @@ const Wishlist = ({
           <div className="container">
             {wishlistItems && wishlistItems.length >= 1 ? (
               <Fragment>
-                <h3 className="cart-page-title">Your wishlist items</h3>
+                <h3 className="cart-page-title">Danh sách yêu thích</h3>
                 <div className="row">
                   <div className="col-12">
                     <div className="table-content table-responsive cart-table-content">
                       <table>
                         <thead>
                           <tr>
-                            <th>Image</th>
-                            <th>Product Name</th>
-                            <th>Unit Price</th>
-                            <th>Add To Cart</th>
-                            <th>action</th>
+                            <th></th>
+                            <th>Sản phẩm</th>
+                            <th>Đơn giá</th>
+                            <th>Thêm vào giỏ</th>
+                            <th>Xóa</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -139,47 +139,47 @@ const Wishlist = ({
                                       target="_blank"
                                     >
                                       {" "}
-                                      THÊM VÀO GIỎ{" "}
+                                      HÀNG SẮP VỀ{" "}
                                     </a>
                                   ) : wishlistItem.variation &&
                                     wishlistItem.variation.length >= 1 ? (
-                                    <Link
-                                      to={`${process.env.PUBLIC_URL}/product/${wishlistItem.id}`}
-                                    >
-                                      Lựa chọn
-                                    </Link>
-                                  ) : wishlistItem.stock &&
-                                    wishlistItem.stock > 0 ? (
-                                    <button
-                                      onClick={() =>
-                                        addToCart(wishlistItem, addToast)
-                                      }
-                                      className={
-                                        cartItem !== undefined &&
-                                        cartItem.quantity > 0
-                                          ? "active"
-                                          : ""
-                                      }
-                                      disabled={
-                                        cartItem !== undefined &&
-                                        cartItem.quantity > 0
-                                      }
-                                      title={
-                                        wishlistItem !== undefined
-                                          ? "Added to cart"
-                                          : "Add to cart"
-                                      }
-                                    >
-                                      {cartItem !== undefined &&
-                                      cartItem.quantity > 0
-                                        ? "Added"
-                                        : "Add to cart"}
-                                    </button>
-                                  ) : (
-                                    <button disabled className="active">
-                                      Out of stock
-                                    </button>
-                                  )}
+                                        <Link
+                                          to={`${process.env.PUBLIC_URL}/product/${wishlistItem.id}`}
+                                        >
+                                          Lựa chọn
+                                        </Link>
+                                      ) : wishlistItem.stock &&
+                                        wishlistItem.stock > 0 ? (
+                                          <button
+                                            onClick={() =>
+                                              addToCart(wishlistItem, addToast)
+                                            }
+                                            className={
+                                              cartItem !== undefined &&
+                                                cartItem.quantity > 0
+                                                ? "active"
+                                                : ""
+                                            }
+                                            disabled={
+                                              cartItem !== undefined &&
+                                              cartItem.quantity > 0
+                                            }
+                                            title={
+                                              wishlistItem !== undefined
+                                                ? "Added to cart"
+                                                : "Thêm vào giỏ"
+                                            }
+                                          >
+                                            {cartItem !== undefined &&
+                                              cartItem.quantity > 0
+                                              ? "Added"
+                                              : "Thêm vào giỏ"}
+                                          </button>
+                                        ) : (
+                                          <button disabled className="active">
+                                            Hết hàng
+                                          </button>
+                                        )}
                                 </td>
 
                                 <td className="product-remove">
@@ -207,12 +207,12 @@ const Wishlist = ({
                         <Link
                           to={process.env.PUBLIC_URL + "/shop-grid-standard"}
                         >
-                          Continue Shopping
+                          Tiếp tục mua sắm
                         </Link>
                       </div>
                       <div className="cart-clear">
                         <button onClick={() => removeAllFromWishlist(addToast)}>
-                          Clear Wishlist
+                          Xóa danh sách yêu thích
                         </button>
                       </div>
                     </div>
@@ -220,22 +220,22 @@ const Wishlist = ({
                 </div>
               </Fragment>
             ) : (
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="item-empty-area text-center">
-                    <div className="item-empty-area__icon mb-30">
-                      <i className="pe-7s-like"></i>
-                    </div>
-                    <div className="item-empty-area__text">
-                      No items found in wishlist <br />{" "}
-                      <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
-                        Add Items
+                <div className="row">
+                  <div className="col-lg-12">
+                    <div className="item-empty-area text-center">
+                      <div className="item-empty-area__icon mb-30">
+                        <i className="pe-7s-like"></i>
+                      </div>
+                      <div className="item-empty-area__text">
+                        Không có mục nào được tìm thấy trong danh sách yêu thích <br />{" "}
+                        <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+                          Add Items
                       </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
           </div>
         </div>
       </LayoutOne>

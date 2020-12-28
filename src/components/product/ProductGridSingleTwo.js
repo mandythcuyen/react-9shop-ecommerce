@@ -74,7 +74,7 @@ const ProductGridSingleTwo = ({
                   href={product.affiliateLink}
                   rel="noopener noreferrer"
                   target="_blank"
-                  title="THÊM VÀO GIỎ"
+                  title="HÀNG SẮP VỀ"
                 >
                   {" "}
                   <i className="fa fa-shopping-cart"></i>{" "}
@@ -96,14 +96,14 @@ const ProductGridSingleTwo = ({
                   }
                   disabled={cartItem !== undefined && cartItem.quantity > 0}
                   title={
-                    cartItem !== undefined ? "Added to cart" : "Add to cart"
+                    cartItem !== undefined ? "Added to cart" : "Thêm vào giỏ"
                   }
                 >
                   {" "}
                   <i className="fa fa-shopping-cart"></i>{" "}
                 </button>
               ) : (
-                <button disabled className="active" title="Out of stock">
+                <button disabled className="active" title="Hết hàng">
                   <i className="fa fa-shopping-cart"></i>
                 </button>
               )}

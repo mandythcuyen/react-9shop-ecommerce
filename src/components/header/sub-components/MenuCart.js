@@ -48,7 +48,7 @@ const MenuCart = ({ cartData, currency, removeFromCart }) => {
                         {single.name}{" "}
                       </Link>
                     </h4>
-                    <h6>Qty: {single.quantity}</h6>
+                    <h6>Số lượng: {single.quantity}</h6>
                     <span>
                       {discountedPrice !== null
                         ? currency.currencySymbol + finalDiscountedPrice
@@ -57,8 +57,8 @@ const MenuCart = ({ cartData, currency, removeFromCart }) => {
                     {single.selectedProductColor &&
                     single.selectedProductSize ? (
                       <div className="cart-item-variation">
-                        <span>Color: {single.selectedProductColor}</span>
-                        <span>Size: {single.selectedProductSize}</span>
+                        <span>Màu sắc: {single.selectedProductColor}</span>
+                        <span>Kích thước: {single.selectedProductSize}</span>
                       </div>
                     ) : (
                       ""
@@ -75,7 +75,7 @@ const MenuCart = ({ cartData, currency, removeFromCart }) => {
           </ul>
           <div className="shopping-cart-total">
             <h4>
-              Total :{" "}
+              Tổng tiền :{" "}
               <span className="shop-total">
                 {currency.currencySymbol + cartTotalPrice.toFixed(2)}
               </span>
@@ -83,18 +83,18 @@ const MenuCart = ({ cartData, currency, removeFromCart }) => {
           </div>
           <div className="shopping-cart-btn btn-hover text-center">
             <Link className="default-btn" to={process.env.PUBLIC_URL + "/cart"}>
-              view cart
+              xem giỏ hàng
             </Link>
             <Link
               className="default-btn"
               to={process.env.PUBLIC_URL + "/checkout"}
             >
-              checkout
+              thanh toán
             </Link>
           </div>
         </Fragment>
       ) : (
-        <p className="text-center">No items added to cart</p>
+        <p className="text-center">Không có mặt hàng nào được thêm vào giỏ hàng</p>
       )}
     </div>
   );

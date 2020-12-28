@@ -5,10 +5,10 @@ const BlogSidebar = () => {
   return (
     <div className="sidebar-style">
       <div className="sidebar-widget">
-        <h4 className="pro-sidebar-title">Search </h4>
+        <h4 className="pro-sidebar-title">Tìm kiếm </h4>
         <div className="pro-sidebar-search mb-55 mt-25">
           <form className="pro-sidebar-search-form" action="#">
-            <input type="text" placeholder="Search here..." />
+            <input type="text" placeholder="Tìm kiếm tại đây..." />
             <button>
               <i className="pe-7s-search" />
             </button>
@@ -101,7 +101,7 @@ const BlogSidebar = () => {
         </div>
       </div>
       <div className="sidebar-widget mt-35">
-        <h4 className="pro-sidebar-title">Categories</h4>
+        <h4 className="pro-sidebar-title">Danh mục sản phẩm</h4>
         <div className="sidebar-widget-list sidebar-widget-list--blog mt-20">
           <ul>
             <li>
