@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "image": "/assets/img/blog/blog-1.jpg",
+    "category": ["lifestyle", "men"],
+    "title": "Điểm danh những Items mùa hè cứ mặc vào là ghi điểm nhan sắc tuyệt vời",
+    "url": "/blog-details-standard",
+    "author": "Admin",
+    "authorUrl": "/blog-standard"
+  },
+  {
+    "id": 2,
+    "image": "/assets/img/blog/blog-2.jpg",
+    "category": ["lifestyle"],
+    "title": "Beige Color - Sắc màu thanh lịch, thời thượng",
+    "url": "/blog-details-standard",
+    "author": "Admin",
+    "authorUrl": "/blog-standard"
+  },
+  {
+    "id": 3,
+    "image": "/assets/img/blog/blog-3.jpg",
+    "category": ["lifestyle"],
+    "title": "Classic Blue - Gam màu của năm 2020",
+    "url": "/blog-details-standard",
+    "author": "Admin",
+    "authorUrl": "/blog-standard"
+  }
+]
