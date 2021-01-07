@@ -1,15 +1,33 @@
 import PropTypes from "prop-types";
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import MetaTags from "react-meta-tags";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
+import { useDispatch, useSelector } from "react-redux";
+import authorizationAction from "../../redux/actions/authorizationActions"
 
-const LoginRegister = ({ location }) => {
-  const { pathname } = location;
+const LoginRegister = (props) => {
+  const { pathname } = props.location;
+  const dispatch = useDispatch();
+  const [formData, setFormData] = useState({
+    username: "",
+    password: ""
+  })
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    if (formData.username == "" || formData.password == "") {
+      alert("Hãy nhập Username và Password đầy đủ!");
+      setFormData({ ...formData, password: "" });
+    }
+    await dispatch(authorizationAction.setIsAuthenticatedAction(true));
+    await dispatch(authorizationAction.setUserAction(formData.username));
+    props.history.push("/");
+  }
 
   return (
     <Fragment>
@@ -54,11 +72,15 @@ const LoginRegister = ({ location }) => {
                                 type="text"
                                 name="user-name"
                                 placeholder="Username"
+                                value={formData.username}
+                                onChange={(e) => setFormData({ ...formData, username: e.target.value })}
                               />
                               <input
                                 type="password"
                                 name="user-password"
                                 placeholder="Password"
+                                value={formData.password}
+                                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                               />
                               <div className="button-box">
                                 <div className="login-toggle-btn">
@@ -68,7 +90,7 @@ const LoginRegister = ({ location }) => {
                                     Forgot Password?
                                   </Link>
                                 </div>
-                                <button type="submit">
+                                <button type="submit" onClick={(e) => onSubmit(e)}>
                                   <span>Login</span>
                                 </button>
                               </div>

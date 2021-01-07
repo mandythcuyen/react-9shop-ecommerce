@@ -4,8 +4,10 @@ import ScrollToTop from "./helpers/scroll-top";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ToastProvider } from "react-toast-notifications";
 import { multilanguage, loadLanguages } from "redux-multilanguage";
-import { connect } from "react-redux";
+import { connect, useSelector, useDispatch } from "react-redux";
 import { BreadcrumbsProvider } from "react-breadcrumbs-dynamic";
+
+import authorizationAction from "./redux/actions/authorizationActions";
 
 // home pages
 const HomeFashion = lazy(() => import("./pages/home/HomeFashion"));
@@ -89,8 +91,11 @@ const Checkout = lazy(() => import("./pages/other/Checkout"));
 const NotFound = lazy(() => import("./pages/other/NotFound"));
 
 const App = props => {
+  const dispatch = useDispatch();
+  const authorizationData = useSelector((state) => state.authorizationData);
+  const { username } = authorizationData;
   useEffect(() => {
-    props.dispatch(
+    dispatch(
       loadLanguages({
         languages: {
           en: require("./translations/english.json"),
