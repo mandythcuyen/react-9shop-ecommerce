@@ -11,7 +11,7 @@ import {
   decrementQty,
   removeFromCart,
   cartItemStock,
-  removeAllFromCart
+  removeAllFromCart,
 } from "../../redux/actions/cartActions";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
@@ -23,7 +23,7 @@ const Cart = ({
   decrementQty,
   addToCart,
   removeFromCart,
-  removeAllFromCart
+  removeAllFromCart,
 }) => {
   const [quantityCount] = useState(1);
   const { addToast } = useToasts();
@@ -82,9 +82,9 @@ const Cart = ({
 
                             discountedPrice != null
                               ? (cartTotalPrice +=
-                                finalDiscountedPrice * cartItem.quantity)
+                                  finalDiscountedPrice * cartItem.quantity)
                               : (cartTotalPrice +=
-                                finalProductPrice * cartItem.quantity);
+                                  finalProductPrice * cartItem.quantity);
                             return (
                               <tr key={key}>
                                 <td className="product-thumbnail">
@@ -117,38 +117,47 @@ const Cart = ({
                                     {cartItem.name}
                                   </Link>
                                   {cartItem.selectedProductColor &&
-                                    cartItem.selectedProductSize ? (
-                                      <div className="cart-item-variation">
-                                        <span>
-                                          Color: {cartItem.selectedProductColor}
-                                        </span>
-                                        <span>
-                                          Size: {cartItem.selectedProductSize}
-                                        </span>
-                                      </div>
-                                    ) : (
-                                      ""
-                                    )}
+                                  cartItem.selectedProductSize ? (
+                                    <div className="cart-item-variation">
+                                      <span>
+                                        Color: {cartItem.selectedProductColor}
+                                      </span>
+                                      <span>
+                                        Size: {cartItem.selectedProductSize}
+                                      </span>
+                                    </div>
+                                  ) : (
+                                    ""
+                                  )}
                                 </td>
 
                                 <td className="product-price-cart">
                                   {discountedPrice !== null ? (
                                     <Fragment>
                                       <span className="amount old">
-                                        {currency.currencySymbol +
-                                          finalProductPrice}
+                                        {parseInt(
+                                          finalProductPrice,
+                                          10
+                                        ).toLocaleString() +
+                                          currency.currencySymbol}
                                       </span>
                                       <span className="amount">
-                                        {currency.currencySymbol +
-                                          finalDiscountedPrice}
+                                        {parseInt(
+                                          finalDiscountedPrice,
+                                          10
+                                        ).toLocaleString() +
+                                          currency.currencySymbol}
                                       </span>
                                     </Fragment>
                                   ) : (
-                                      <span className="amount">
-                                        {currency.currencySymbol +
-                                          finalProductPrice}
-                                      </span>
-                                    )}
+                                    <span className="amount">
+                                      {parseInt(
+                                        finalProductPrice,
+                                        10
+                                      ).toLocaleString() +
+                                        currency.currencySymbol}
+                                    </span>
+                                  )}
                                 </td>
 
                                 <td className="product-quantity">
@@ -180,11 +189,11 @@ const Cart = ({
                                         cartItem !== undefined &&
                                         cartItem.quantity &&
                                         cartItem.quantity >=
-                                        cartItemStock(
-                                          cartItem,
-                                          cartItem.selectedProductColor,
-                                          cartItem.selectedProductSize
-                                        )
+                                          cartItemStock(
+                                            cartItem,
+                                            cartItem.selectedProductColor,
+                                            cartItem.selectedProductSize
+                                          )
                                       }
                                     >
                                       +
@@ -193,14 +202,21 @@ const Cart = ({
                                 </td>
                                 <td className="product-subtotal">
                                   {discountedPrice !== null
-                                    ? currency.currencySymbol +
-                                    (
-                                      finalDiscountedPrice * cartItem.quantity
-                                    ).toFixed(2)
-                                    : currency.currencySymbol +
-                                    (
-                                      finalProductPrice * cartItem.quantity
-                                    ).toFixed(2)}
+                                    ? parseInt(
+                                        (
+                                          finalDiscountedPrice *
+                                          cartItem.quantity
+                                        ).toFixed(2),
+                                        10
+                                      ).toLocaleString() +
+                                      currency.currencySymbol
+                                    : parseInt(
+                                        (
+                                          finalProductPrice * cartItem.quantity
+                                        ).toFixed(2),
+                                        10
+                                      ).toLocaleString() +
+                                      currency.currencySymbol}
                                 </td>
 
                                 <td className="product-remove">
@@ -249,7 +265,8 @@ const Cart = ({
                       </div>
                       <div className="tax-wrapper">
                         <p>
-                          Nhập điểm nhận hàng của bạn để nhận ước tính vận chuyển.
+                          Nhập điểm nhận hàng của bạn để nhận ước tính vận
+                          chuyển.
                         </p>
                         <div className="tax-select-wrapper">
                           <div className="tax-select">
@@ -323,14 +340,16 @@ const Cart = ({
                       <h5>
                         Tạm tính{" "}
                         <span>
-                          {currency.currencySymbol + cartTotalPrice.toFixed(2)}
+                          {cartTotalPrice.toLocaleString() +
+                            currency.currencySymbol}
                         </span>
                       </h5>
 
                       <h4 className="grand-totall-title">
                         Tổng cộng{" "}
                         <span>
-                          {currency.currencySymbol + cartTotalPrice.toFixed(2)}
+                          {cartTotalPrice.toLocaleString() +
+                            currency.currencySymbol}
                         </span>
                       </h4>
                       <Link to={process.env.PUBLIC_URL + "/checkout"}>
@@ -341,22 +360,22 @@ const Cart = ({
                 </div>
               </Fragment>
             ) : (
-                <div className="row">
-                  <div className="col-lg-12">
-                    <div className="item-empty-area text-center">
-                      <div className="item-empty-area__icon mb-30">
-                        <i className="pe-7s-cart"></i>
-                      </div>
-                      <div className="item-empty-area__text">
-                        No items found in cart <br />{" "}
-                        <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
-                          Shop Now
+              <div className="row">
+                <div className="col-lg-12">
+                  <div className="item-empty-area text-center">
+                    <div className="item-empty-area__icon mb-30">
+                      <i className="pe-7s-cart"></i>
+                    </div>
+                    <div className="item-empty-area__text">
+                      Không tìm thấy sản phẩm nào trong giỏ hàng <br />{" "}
+                      <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+                        Thêm sản phẩm
                       </Link>
-                      </div>
                     </div>
                   </div>
                 </div>
-              )}
+              </div>
+            )}
           </div>
         </div>
       </LayoutOne>
@@ -371,17 +390,17 @@ Cart.propTypes = {
   decrementQty: PropTypes.func,
   location: PropTypes.object,
   removeAllFromCart: PropTypes.func,
-  removeFromCart: PropTypes.func
+  removeFromCart: PropTypes.func,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     cartItems: state.cartData,
-    currency: state.currencyData
+    currency: state.currencyData,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (item, addToast, quantityCount) => {
       dispatch(addToCart(item, addToast, quantityCount));
@@ -392,9 +411,9 @@ const mapDispatchToProps = dispatch => {
     removeFromCart: (item, addToast) => {
       dispatch(removeFromCart(item, addToast));
     },
-    removeAllFromCart: addToast => {
+    removeAllFromCart: (addToast) => {
       dispatch(removeAllFromCart(addToast));
-    }
+    },
   };
 };
 

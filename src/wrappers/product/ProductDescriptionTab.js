@@ -16,7 +16,9 @@ const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="productDescription">Mô tả sản phẩm</Nav.Link>
+                <Nav.Link eventKey="productDescription">
+                  Mô tả sản phẩm
+                </Nav.Link>
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link eventKey="productReviews">Reviews(2)</Nav.Link>
@@ -78,7 +80,8 @@ const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
                           </div>
                           <div className="review-bottom">
                             <p>
-                              Chất đẹp, kiểu dáng đúng ý. Giá rẻ nữa nên mình mua thêm cái nữa.
+                              Chất đẹp, kiểu dáng đúng ý. Giá rẻ nữa nên mình
+                              mua thêm cái nữa.
                             </p>
                           </div>
                         </div>
@@ -112,9 +115,7 @@ const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
                             </div>
                           </div>
                           <div className="review-bottom">
-                            <p>
-                              Cực kỳ hài lòng. Cảm ơn shop!
-                            </p>
+                            <p>Cực kỳ hài lòng. Cảm ơn shop!</p>
                           </div>
                         </div>
                       </div>
@@ -138,7 +139,7 @@ const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
                           <div className="row">
                             <div className="col-md-6">
                               <div className="rating-form-style mb-10">
-                                <input placeholder="Name" type="text" />
+                                <input placeholder="Họ và tên" type="text" />
                               </div>
                             </div>
                             <div className="col-md-6">
@@ -150,10 +151,10 @@ const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
                               <div className="rating-form-style form-submit">
                                 <textarea
                                   name="Your Review"
-                                  placeholder="Message"
+                                  placeholder="Nội dung bình luận"
                                   defaultValue={""}
                                 />
-                                <input type="submit" defaultValue="Submit" />
+                                <input type="submit" value="Gửi"></input>
                               </div>
                             </div>
                           </div>
@@ -173,7 +174,7 @@ const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
 
 ProductDescriptionTab.propTypes = {
   productFullDesc: PropTypes.string,
-  spaceBottomClass: PropTypes.string
+  spaceBottomClass: PropTypes.string,
 };
 
 export default ProductDescriptionTab;

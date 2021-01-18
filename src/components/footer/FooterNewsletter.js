@@ -10,10 +10,10 @@ const FooterNewsletter = ({ spaceBottomClass, spaceLeftClass, sideMenu }) => {
       }`}
     >
       <div className="footer-title">
-        <h3>SUBSCRIBE</h3>
+        <h3>ĐĂNG KÍ</h3>
       </div>
       <div className="subscribe-style">
-        <p>Get E-mail updates about our latest shop and special offers.</p>
+        <p>Nhận email cập nhật thông tin về sản phẩm mới và ưu đãi của shop.</p>
         {/* subscribe email */}
         <SubscribeEmail mailchimpUrl="//devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" />
       </div>
@@ -23,7 +23,7 @@ const FooterNewsletter = ({ spaceBottomClass, spaceLeftClass, sideMenu }) => {
 
 FooterNewsletter.propTypes = {
   spaceBottomClass: PropTypes.string,
-  spaceLeftClass: PropTypes.string
+  spaceLeftClass: PropTypes.string,
 };
 
 export default FooterNewsletter;

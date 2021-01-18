@@ -4,11 +4,11 @@ export const DELETE_ALL_FROM_WISHLIST = "DELETE_ALL_FROM_WISHLIST";
 
 // add to wishlist
 export const addToWishlist = (item, addToast) => {
-  return dispatch => {
+  return (dispatch) => {
     if (addToast) {
-      addToast("Added To Wishlist", {
+      addToast("Đã thêm sản phẩm vào danh sách yêu thích!", {
         appearance: "success",
-        autoDismiss: true
+        autoDismiss: true,
       });
     }
     dispatch({ type: ADD_TO_WISHLIST, payload: item });
@@ -17,11 +17,11 @@ export const addToWishlist = (item, addToast) => {
 
 // remove from wishlist
 export const removeFromWishlist = (item, addToast) => {
-  return dispatch => {
+  return (dispatch) => {
     if (addToast) {
-      addToast("Removed From Wishlist", {
+      addToast("Đã xóa sản phẩm khỏi danh sách yêu thích!", {
         appearance: "error",
-        autoDismiss: true
+        autoDismiss: true,
       });
     }
     dispatch({ type: DELETE_FROM_WISHLIST, payload: item });
@@ -29,12 +29,12 @@ export const removeFromWishlist = (item, addToast) => {
 };
 
 //remove all from wishlist
-export const removeAllFromWishlist = addToast => {
-  return dispatch => {
+export const removeAllFromWishlist = (addToast) => {
+  return (dispatch) => {
     if (addToast) {
-      addToast("Removed All From Wishlist", {
+      addToast("Đã xóa tất cả khỏi danh sách yêu thích! ", {
         appearance: "error",
-        autoDismiss: true
+        autoDismiss: true,
       });
     }
     dispatch({ type: DELETE_ALL_FROM_WISHLIST });

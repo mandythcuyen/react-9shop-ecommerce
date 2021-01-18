@@ -11,9 +11,12 @@ export const addToCart = (
   selectedProductColor,
   selectedProductSize
 ) => {
-  return dispatch => {
+  return (dispatch) => {
     if (addToast) {
-      addToast("Added To Cart", { appearance: "success", autoDismiss: true });
+      addToast("Đã thêm sản phẩm vào giỏ hàng!", {
+        appearance: "success",
+        autoDismiss: true,
+      });
     }
     dispatch({
       type: ADD_TO_CART,
@@ -29,18 +32,18 @@ export const addToCart = (
           ? selectedProductSize
           : item.selectedProductSize
           ? item.selectedProductSize
-          : null
-      }
+          : null,
+      },
     });
   };
 };
 //decrement from cart
 export const decrementQty = (item, addToast) => {
-  return dispatch => {
+  return (dispatch) => {
     if (addToast) {
-      addToast("Item Decremented From Cart", {
+      addToast("Đã giảm số lượng sản phẩm!", {
         appearance: "warning",
-        autoDismiss: true
+        autoDismiss: true,
       });
     }
     dispatch({ type: DECREASE_QUANTITY, payload: item });
@@ -48,20 +51,23 @@ export const decrementQty = (item, addToast) => {
 };
 //remove from cart
 export const removeFromCart = (item, addToast) => {
-  return dispatch => {
+  return (dispatch) => {
     if (addToast) {
-      addToast("Removed From Cart", { appearance: "error", autoDismiss: true });
+      addToast("Đã xóa sản phẩm khỏi giỏ hàng!", {
+        appearance: "error",
+        autoDismiss: true,
+      });
     }
     dispatch({ type: DELETE_FROM_CART, payload: item });
   };
 };
 //remove all from cart
-export const removeAllFromCart = addToast => {
-  return dispatch => {
+export const removeAllFromCart = (addToast) => {
+  return (dispatch) => {
     if (addToast) {
-      addToast("Removed All From Cart", {
+      addToast("Xóa tất cả khỏi giỏ hàng!", {
         appearance: "error",
-        autoDismiss: true
+        autoDismiss: true,
       });
     }
     dispatch({ type: DELETE_ALL_FROM_CART });
@@ -74,7 +80,7 @@ export const cartItemStock = (item, color, size) => {
     return item.stock;
   } else {
     return item.variation
-      .filter(single => single.color === color)[0]
-      .size.filter(single => single.name === size)[0].stock;
+      .filter((single) => single.color === color)[0]
+      .size.filter((single) => single.name === size)[0].stock;
   }
 };

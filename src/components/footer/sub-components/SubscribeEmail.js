@@ -8,7 +8,7 @@ const CustomForm = ({ status, message, onValidated }) => {
     email &&
       email.value.indexOf("@") > -1 &&
       onValidated({
-        EMAIL: email.value
+        EMAIL: email.value,
       });
 
     let emailInput = document.getElementById("mc-form-email");
@@ -22,14 +22,14 @@ const CustomForm = ({ status, message, onValidated }) => {
           <input
             id="mc-form-email"
             className="email"
-            ref={node => (email = node)}
+            ref={(node) => (email = node)}
             type="email"
-            placeholder="Enter your email address..."
+            placeholder="Nhập email của bạn..."
           />
         </div>
         <div className="clear">
           <button className="button" onClick={submit}>
-            SUBSCRIBE
+            ĐĂNG KÝ
           </button>
         </div>
       </div>
@@ -62,7 +62,7 @@ const SubscribeEmail = ({ mailchimpUrl }) => {
           <CustomForm
             status={status}
             message={message}
-            onValidated={formData => subscribe(formData)}
+            onValidated={(formData) => subscribe(formData)}
           />
         )}
       />
@@ -71,7 +71,7 @@ const SubscribeEmail = ({ mailchimpUrl }) => {
 };
 
 SubscribeEmail.propTypes = {
-  mailchimpUrl: PropTypes.string
+  mailchimpUrl: PropTypes.string,
 };
 
 export default SubscribeEmail;

@@ -8,15 +8,15 @@ import Nav from "react-bootstrap/Nav";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import { useDispatch, useSelector } from "react-redux";
-import authorizationAction from "../../redux/actions/authorizationActions"
+import authorizationAction from "../../redux/actions/authorizationActions";
 
 const LoginRegister = (props) => {
   const { pathname } = props.location;
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     username: "",
-    password: ""
-  })
+    password: "",
+  });
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -27,12 +27,12 @@ const LoginRegister = (props) => {
     await dispatch(authorizationAction.setIsAuthenticatedAction(true));
     await dispatch(authorizationAction.setUserAction(formData.username));
     props.history.push("/");
-  }
+  };
 
   return (
     <Fragment>
       <MetaTags>
-        <title>Flone | Login</title>
+        <title>9Shop | Login</title>
         <meta
           name="description"
           content="Compare page of flone react minimalist eCommerce template."
@@ -54,12 +54,12 @@ const LoginRegister = (props) => {
                     <Nav variant="pills" className="login-register-tab-list">
                       <Nav.Item>
                         <Nav.Link eventKey="login">
-                          <h4>Login</h4>
+                          <h4>Đăng nhập</h4>
                         </Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
                         <Nav.Link eventKey="register">
-                          <h4>Register</h4>
+                          <h4>Đăng ký</h4>
                         </Nav.Link>
                       </Nav.Item>
                     </Nav>
@@ -73,25 +73,40 @@ const LoginRegister = (props) => {
                                 name="user-name"
                                 placeholder="Username"
                                 value={formData.username}
-                                onChange={(e) => setFormData({ ...formData, username: e.target.value })}
+                                onChange={(e) =>
+                                  setFormData({
+                                    ...formData,
+                                    username: e.target.value,
+                                  })
+                                }
                               />
                               <input
                                 type="password"
                                 name="user-password"
                                 placeholder="Password"
                                 value={formData.password}
-                                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                                onChange={(e) =>
+                                  setFormData({
+                                    ...formData,
+                                    password: e.target.value,
+                                  })
+                                }
                               />
                               <div className="button-box">
                                 <div className="login-toggle-btn">
                                   <input type="checkbox" />
-                                  <label className="ml-10">Remember me</label>
+                                  <label className="ml-10">
+                                    Ghi nhớ đăng nhập
+                                  </label>
                                   <Link to={process.env.PUBLIC_URL + "/"}>
-                                    Forgot Password?
+                                    Quên mật khẩu?
                                   </Link>
                                 </div>
-                                <button type="submit" onClick={(e) => onSubmit(e)}>
-                                  <span>Login</span>
+                                <button
+                                  type="submit"
+                                  onClick={(e) => onSubmit(e)}
+                                >
+                                  <span>Đăng nhập</span>
                                 </button>
                               </div>
                             </form>
@@ -119,7 +134,7 @@ const LoginRegister = (props) => {
                               />
                               <div className="button-box">
                                 <button type="submit">
-                                  <span>Register</span>
+                                  <span>Đăng ký</span>
                                 </button>
                               </div>
                             </form>
@@ -139,7 +154,7 @@ const LoginRegister = (props) => {
 };
 
 LoginRegister.propTypes = {
-  location: PropTypes.object
+  location: PropTypes.object,
 };
 
 export default LoginRegister;

@@ -65,7 +65,7 @@ const Contact = ({ location }) => {
                     </div>
                   </div>
                   <div className="contact-social text-center">
-                    <h3>Follow Us</h3>
+                    <h3>Theo dõi chúng tôi</h3>
                     <ul>
                       <li>
                         <a href="//facebook.com">
@@ -99,12 +99,16 @@ const Contact = ({ location }) => {
               <div className="col-lg-8 col-md-7">
                 <div className="contact-form">
                   <div className="contact-title mb-30">
-                    <h2>Get In Touch</h2>
+                    <h2>Liên hệ</h2>
                   </div>
                   <form className="contact-form-style">
                     <div className="row">
                       <div className="col-lg-6">
-                        <input name="name" placeholder="Name*" type="text" />
+                        <input
+                          name="name"
+                          placeholder="Họ và tên*"
+                          type="text"
+                        />
                       </div>
                       <div className="col-lg-6">
                         <input name="email" placeholder="Email*" type="email" />
@@ -112,18 +116,18 @@ const Contact = ({ location }) => {
                       <div className="col-lg-12">
                         <input
                           name="subject"
-                          placeholder="Subject*"
+                          placeholder="Tiêu đề*"
                           type="text"
                         />
                       </div>
                       <div className="col-lg-12">
                         <textarea
                           name="message"
-                          placeholder="Your Massege*"
+                          placeholder="Tin nhắn của bạn*"
                           defaultValue={""}
                         />
                         <button className="submit" type="submit">
-                          SEND
+                          Gửi
                         </button>
                       </div>
                     </div>
@@ -140,7 +144,7 @@ const Contact = ({ location }) => {
 };
 
 Contact.propTypes = {
-  location: PropTypes.object
+  location: PropTypes.object,
 };
 
 export default Contact;

@@ -51,8 +51,10 @@ const MenuCart = ({ cartData, currency, removeFromCart }) => {
                     <h6>Số lượng: {single.quantity}</h6>
                     <span>
                       {discountedPrice !== null
-                        ? currency.currencySymbol + finalDiscountedPrice
-                        : currency.currencySymbol + finalProductPrice}
+                        ? parseInt(finalDiscountedPrice, 10).toLocaleString() +
+                          currency.currencySymbol
+                        : parseInt(finalProductPrice, 10).toLocaleString() +
+                          currency.currencySymbol}
                     </span>
                     {single.selectedProductColor &&
                     single.selectedProductSize ? (
@@ -77,7 +79,7 @@ const MenuCart = ({ cartData, currency, removeFromCart }) => {
             <h4>
               Tổng tiền :{" "}
               <span className="shop-total">
-                {currency.currencySymbol + cartTotalPrice.toFixed(2)}
+                {cartTotalPrice.toLocaleString() + currency.currencySymbol}
               </span>
             </h4>
           </div>
@@ -94,7 +96,9 @@ const MenuCart = ({ cartData, currency, removeFromCart }) => {
           </div>
         </Fragment>
       ) : (
-        <p className="text-center">Không có mặt hàng nào được thêm vào giỏ hàng</p>
+        <p className="text-center">
+          Không có mặt hàng nào được thêm vào giỏ hàng
+        </p>
       )}
     </div>
   );
@@ -103,7 +107,7 @@ const MenuCart = ({ cartData, currency, removeFromCart }) => {
 MenuCart.propTypes = {
   cartData: PropTypes.array,
   currency: PropTypes.object,
-  removeFromCart: PropTypes.func
+  removeFromCart: PropTypes.func,
 };
 
 export default MenuCart;

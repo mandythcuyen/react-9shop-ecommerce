@@ -59,7 +59,7 @@ function ProductModal(props) {
     getSwiper: getGallerySwiper,
     spaceBetween: 10,
     loopedSlides: 4,
-    loop: true
+    loop: true,
   };
 
   const thumbnailSwiperParams = {
@@ -73,7 +73,7 @@ function ProductModal(props) {
     slideToClickedSlide: true,
     navigation: {
       nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
+      prevEl: ".swiper-button-prev",
     },
     renderPrevButton: () => (
       <button className="swiper-button-prev ht-swiper-button-nav">
@@ -84,7 +84,7 @@ function ProductModal(props) {
       <button className="swiper-button-next ht-swiper-button-nav">
         <i className="pe-7s-angle-right" />
       </button>
-    )
+    ),
   };
 
   return (
@@ -143,14 +143,19 @@ function ProductModal(props) {
                   {discountedprice !== null ? (
                     <Fragment>
                       <span>
-                        {currency.currencySymbol + finaldiscountedprice}
+                        {parseInt(finaldiscountedprice).toLocaleString() +
+                          currency.currencySymbol}
                       </span>{" "}
                       <span className="old">
-                        {currency.currencySymbol + finalproductprice}
+                        {parseInt(finalproductprice).toLocaleString() +
+                          currency.currencySymbol}
                       </span>
                     </Fragment>
                   ) : (
-                    <span>{currency.currencySymbol + finalproductprice} </span>
+                    <span>
+                      {parseInt(finalproductprice).toLocaleString() +
+                        currency.currencySymbol}{" "}
+                    </span>
                   )}
                 </div>
                 {product.rating && product.rating > 0 ? (
@@ -203,7 +208,7 @@ function ProductModal(props) {
                       <span>Kích thước</span>
                       <div className="pro-details-size-content">
                         {product.variation &&
-                          product.variation.map(single => {
+                          product.variation.map((single) => {
                             return single.color === selectedProductColor
                               ? single.size.map((singleSize, key) => {
                                   return (
@@ -313,8 +318,8 @@ function ProductModal(props) {
                         disabled={wishlistItem !== undefined}
                         title={
                           wishlistItem !== undefined
-                            ? "Added to wishlist"
-                            : "Add to wishlist"
+                            ? "Đã thêm vào danh sách yêu thích"
+                            : "Thêm vào danh sách yêu thích"
                         }
                         onClick={() => addToWishlist(product, addToast)}
                       >
@@ -327,8 +332,8 @@ function ProductModal(props) {
                         disabled={compareItem !== undefined}
                         title={
                           compareItem !== undefined
-                            ? "Added to compare"
-                            : "Add to compare"
+                            ? "Đã thêm vào danh sách so sánh"
+                            : "Thêm vào danh sách so sánh"
                         }
                         onClick={() => addToCompare(product, addToast)}
                       >
@@ -360,12 +365,12 @@ ProductModal.propTypes = {
   onHide: PropTypes.func,
   product: PropTypes.object,
   show: PropTypes.bool,
-  wishlistitem: PropTypes.object
+  wishlistitem: PropTypes.object,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    cartitems: state.cartData
+    cartitems: state.cartData,
   };
 };
 

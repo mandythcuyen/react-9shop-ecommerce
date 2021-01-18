@@ -10,18 +10,19 @@ const HeaderTop = ({
   changeCurrency,
   currentLanguageCode,
   dispatch,
-  borderStyle
+  borderStyle,
 }) => {
   return (
     <div
       className={`header-top-wap ${
         borderStyle === "fluid-border" ? "border-bottom" : ""
       }`}
+      style={{ display: "none" }}
     >
       <LanguageCurrencyChanger
         currency={currency}
         changeCurrency={changeCurrency}
-        currentLanguageCode={currentLanguageCode}
+        currentLanguageCode="vi"
         dispatch={dispatch}
       />
       <div className="header-offer">
@@ -41,20 +42,20 @@ HeaderTop.propTypes = {
   changeCurrency: PropTypes.func,
   currency: PropTypes.object,
   currentLanguageCode: PropTypes.string,
-  dispatch: PropTypes.func
+  dispatch: PropTypes.func,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    currency: state.currencyData
+    currency: state.currencyData,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    changeCurrency: currencyName => {
+    changeCurrency: (currencyName) => {
       dispatch(changeCurrency(currencyName));
-    }
+    },
   };
 };
 

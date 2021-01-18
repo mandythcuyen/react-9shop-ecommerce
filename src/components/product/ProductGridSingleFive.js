@@ -15,7 +15,7 @@ const ProductGridSingleFive = ({
   wishlistItem,
   compareItem,
   sliderClassName,
-  spaceBottomClass
+  spaceBottomClass,
 }) => {
   const [modalShow, setModalShow] = useState(false);
   const { addToast } = useToasts();
@@ -91,8 +91,8 @@ const ProductGridSingleFive = ({
                       disabled={wishlistItem !== undefined}
                       title={
                         wishlistItem !== undefined
-                          ? "Added to wishlist"
-                          : "Add to wishlist"
+                          ? "Đã thêm vào danh sách yêu thích"
+                          : "Thêm vào danh sách yêu thích"
                       }
                       onClick={() => addToWishlist(product, addToast)}
                     >
@@ -130,7 +130,7 @@ const ProductGridSingleFive = ({
                         }
                         title={
                           cartItem !== undefined
-                            ? "Added to cart"
+                            ? "Đã thêm vào giỏ"
                             : "Thêm vào giỏ"
                         }
                       >
@@ -150,8 +150,8 @@ const ProductGridSingleFive = ({
                       disabled={compareItem !== undefined}
                       title={
                         compareItem !== undefined
-                          ? "Added to compare"
-                          : "Add to compare"
+                          ? "Đã thêm vào danh sách so sánh"
+                          : "Thêm vào danh sách so sánh"
                       }
                       onClick={() => addToCompare(product, addToast)}
                     >
@@ -204,7 +204,7 @@ ProductGridSingleFive.propTypes = {
   product: PropTypes.object,
   sliderClassName: PropTypes.string,
   spaceBottomClass: PropTypes.string,
-  wishlistItem: PropTypes.object
+  wishlistItem: PropTypes.object,
 };
 
 export default ProductGridSingleFive;

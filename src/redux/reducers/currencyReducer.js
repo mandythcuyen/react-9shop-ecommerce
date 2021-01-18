@@ -3,27 +3,27 @@ import { CHANGE_CURRENCY } from "../actions/currencyActions";
 const initState = {
   currencySymbol: "$",
   currencyName: "USD",
-  currencyRate: 1
+  currencyRate: 1,
 };
 
 const currencyReducer = (state = initState, action) => {
   if (action.type === CHANGE_CURRENCY) {
     const currencyName = action.payload.currencyName;
 
-    /* if (currencyName === "VND") {
+    if (currencyName === "VND") {
       return {
         ...state,
         currencySymbol: "₫",
         currencyRate: action.payload.currencyRate,
-        currencyName
+        currencyName,
       };
-    } */
+    }
     if (currencyName === "USD") {
       return {
         ...state,
         currencySymbol: "$",
         currencyRate: action.payload.currencyRate,
-        currencyName
+        currencyName,
       };
     }
     if (currencyName === "EUR") {
@@ -31,7 +31,7 @@ const currencyReducer = (state = initState, action) => {
         ...state,
         currencySymbol: "€",
         currencyRate: action.payload.currencyRate,
-        currencyName
+        currencyName,
       };
     }
     if (currencyName === "GBP") {
@@ -39,7 +39,7 @@ const currencyReducer = (state = initState, action) => {
         ...state,
         currencySymbol: "£",
         currencyRate: action.payload.currencyRate,
-        currencyName
+        currencyName,
       };
     }
   }

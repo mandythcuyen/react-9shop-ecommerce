@@ -20,7 +20,7 @@ const ProductDescriptionInfoSlider = ({
   addToast,
   addToCart,
   addToWishlist,
-  addToCompare
+  addToCompare,
 }) => {
   const [selectedProductColor, setSelectedProductColor] = useState(
     product.variation ? product.variation[0].color : ""
@@ -46,13 +46,20 @@ const ProductDescriptionInfoSlider = ({
       <div className="product-details-price justify-content-center">
         {discountedPrice !== null ? (
           <Fragment>
-            <span>{currency.currencySymbol + finalDiscountedPrice}</span>{" "}
+            <span>
+              {parseInt(finalDiscountedPrice).toLocaleString() +
+                currency.currencySymbol}
+            </span>{" "}
             <span className="old">
-              {currency.currencySymbol + finalProductPrice}
+              {parseInt(finalProductPrice).toLocaleString() +
+                currency.currencySymbol}
             </span>
           </Fragment>
         ) : (
-          <span>{currency.currencySymbol + finalProductPrice} </span>
+          <span>
+            {parseInt(finalProductPrice).toLocaleString() +
+              currency.currencySymbol}{" "}
+          </span>
         )}
       </div>
       {product.rating && product.rating > 0 ? (
@@ -103,7 +110,7 @@ const ProductDescriptionInfoSlider = ({
             <span>Kích thước</span>
             <div className="pro-details-size-content">
               {product.variation &&
-                product.variation.map(single => {
+                product.variation.map((single) => {
                   return single.color === selectedProductColor
                     ? single.size.map((singleSize, key) => {
                         return (
@@ -206,8 +213,8 @@ const ProductDescriptionInfoSlider = ({
               disabled={wishlistItem !== undefined}
               title={
                 wishlistItem !== undefined
-                  ? "Added to wishlist"
-                  : "Add to wishlist"
+                  ? "Đã thêm vào danh sách yêu thích"
+                  : "Thêm vào danh sách yêu thích"
               }
               onClick={() => addToWishlist(product, addToast)}
             >
@@ -220,8 +227,8 @@ const ProductDescriptionInfoSlider = ({
               disabled={compareItem !== undefined}
               title={
                 compareItem !== undefined
-                  ? "Added to compare"
-                  : "Add to compare"
+                  ? "Đã thêm vào danh sách so sánh"
+                  : "Thêm vào danh sách so sánh"
               }
               onClick={() => addToCompare(product, addToast)}
             >
@@ -312,10 +319,10 @@ ProductDescriptionInfoSlider.propTypes = {
   finalDiscountedPrice: PropTypes.number,
   finalProductPrice: PropTypes.number,
   product: PropTypes.object,
-  wishlistItem: PropTypes.object
+  wishlistItem: PropTypes.object,
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (
       item,
@@ -339,7 +346,7 @@ const mapDispatchToProps = dispatch => {
     },
     addToCompare: (item, addToast) => {
       dispatch(addToCompare(item, addToast));
-    }
+    },
   };
 };
 

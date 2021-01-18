@@ -16,7 +16,7 @@ const ProductGridSingle = ({
   wishlistItem,
   compareItem,
   sliderClassName,
-  spaceBottomClass
+  spaceBottomClass,
 }) => {
   const [modalShow, setModalShow] = useState(false);
   const { addToast } = useToasts();
@@ -74,8 +74,8 @@ const ProductGridSingle = ({
                   disabled={wishlistItem !== undefined}
                   title={
                     wishlistItem !== undefined
-                      ? "Added to wishlist"
-                      : "Add to wishlist"
+                      ? "Đã thêm vào danh sách yêu thích"
+                      : "Thêm vào danh sách yêu thích"
                   }
                   onClick={() => addToWishlist(product, addToast)}
                 >
@@ -106,13 +106,15 @@ const ProductGridSingle = ({
                     }
                     disabled={cartItem !== undefined && cartItem.quantity > 0}
                     title={
-                      cartItem !== undefined ? "Added to cart" : "Thêm vào giỏ"
+                      cartItem !== undefined
+                        ? "Đã thêm vào giỏ hàng"
+                        : "Thêm vào giỏ"
                     }
                   >
                     {" "}
                     <i className="pe-7s-cart"></i>{" "}
                     {cartItem !== undefined && cartItem.quantity > 0
-                      ? "Added"
+                      ? "Đã thêm vào giỏ"
                       : "Thêm vào giỏ"}
                   </button>
                 ) : (
@@ -144,13 +146,19 @@ const ProductGridSingle = ({
             <div className="product-price">
               {discountedPrice !== null ? (
                 <Fragment>
-                  <span>{currency.currencySymbol + finalDiscountedPrice}</span>{" "}
+                  <span>
+                    {finalDiscountedPrice.toLocaleString() +
+                      currency.currencySymbol}
+                  </span>{" "}
                   <span className="old">
-                    {currency.currencySymbol + finalProductPrice}
+                    {finalProductPrice.toLocaleString() +
+                      currency.currencySymbol}
                   </span>
                 </Fragment>
               ) : (
-                <span>{currency.currencySymbol + finalProductPrice} </span>
+                <span>
+                  {finalProductPrice.toLocaleString() + currency.currencySymbol}
+                </span>
               )}
             </div>
           </div>
@@ -187,7 +195,7 @@ ProductGridSingle.propTypes = {
   product: PropTypes.object,
   sliderClassName: PropTypes.string,
   spaceBottomClass: PropTypes.string,
-  wishlistItem: PropTypes.object
+  wishlistItem: PropTypes.object,
 };
 
 export default ProductGridSingle;

@@ -13,7 +13,7 @@ const FooterCopyright = ({ footerLogo, spaceBottomClass }) => {
       <p>
         © 2020{" "}
         <a href="//hasthemes.com" rel="noopener noreferrer" target="_blank">
-          Flone
+          9Shop
         </a>
         .<br /> All Rights Reserved
       </p>
@@ -23,7 +23,7 @@ const FooterCopyright = ({ footerLogo, spaceBottomClass }) => {
 
 FooterCopyright.propTypes = {
   footerLogo: PropTypes.string,
-  spaceBottomClass: PropTypes.string
+  spaceBottomClass: PropTypes.string,
 };
 
 export default FooterCopyright;

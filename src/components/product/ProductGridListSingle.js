@@ -16,7 +16,7 @@ const ProductGridListSingle = ({
   wishlistItem,
   compareItem,
   sliderClassName,
-  spaceBottomClass
+  spaceBottomClass,
 }) => {
   const [modalShow, setModalShow] = useState(false);
   const { addToast } = useToasts();
@@ -74,8 +74,8 @@ const ProductGridListSingle = ({
                   disabled={wishlistItem !== undefined}
                   title={
                     wishlistItem !== undefined
-                      ? "Added to wishlist"
-                      : "Add to wishlist"
+                      ? "Đã thêm vào danh sách yêu thích"
+                      : "Thêm vào danh sách yêu thích"
                   }
                   onClick={() => addToWishlist(product, addToast)}
                 >
@@ -106,13 +106,15 @@ const ProductGridListSingle = ({
                     }
                     disabled={cartItem !== undefined && cartItem.quantity > 0}
                     title={
-                      cartItem !== undefined ? "Added to cart" : "Thêm vào giỏ"
+                      cartItem !== undefined
+                        ? "Đã thêm vào giỏ hàng!"
+                        : "Thêm vào giỏ"
                     }
                   >
                     {" "}
                     <i className="pe-7s-cart"></i>{" "}
                     {cartItem !== undefined && cartItem.quantity > 0
-                      ? "Added"
+                      ? "Đã thêm vào giỏ"
                       : "Thêm vào giỏ"}
                   </button>
                 ) : (
@@ -144,13 +146,19 @@ const ProductGridListSingle = ({
             <div className="product-price">
               {discountedPrice !== null ? (
                 <Fragment>
-                  <span>{currency.currencySymbol + finalDiscountedPrice}</span>{" "}
+                  <span>
+                    {finalDiscountedPrice.toLocaleString() +
+                      currency.currencySymbol}
+                  </span>{" "}
                   <span className="old">
-                    {currency.currencySymbol + finalProductPrice}
+                    {finalProductPrice.toLocaleString() +
+                      currency.currencySymbol}
                   </span>
                 </Fragment>
               ) : (
-                <span>{currency.currencySymbol + finalProductPrice} </span>
+                <span>
+                  {finalProductPrice.toLocaleString() + currency.currencySymbol}{" "}
+                </span>
               )}
             </div>
           </div>
@@ -202,14 +210,19 @@ const ProductGridListSingle = ({
                   {discountedPrice !== null ? (
                     <Fragment>
                       <span>
-                        {currency.currencySymbol + finalDiscountedPrice}
+                        {finalDiscountedPrice.toLocaleString() +
+                          currency.currencySymbol}
                       </span>{" "}
                       <span className="old">
-                        {currency.currencySymbol + finalProductPrice}
+                        {finalProductPrice.toLocaleString() +
+                          currency.currencySymbol}
                       </span>
                     </Fragment>
                   ) : (
-                    <span>{currency.currencySymbol + finalProductPrice} </span>
+                    <span>
+                      {finalProductPrice.toLocaleString() +
+                        currency.currencySymbol}{" "}
+                    </span>
                   )}
                 </div>
                 {product.rating && product.rating > 0 ? (
@@ -257,14 +270,14 @@ const ProductGridListSingle = ({
                         }
                         title={
                           cartItem !== undefined
-                            ? "Added to cart"
+                            ? "Đã thêm vào giỏ"
                             : "Thêm vào giỏ"
                         }
                       >
                         {" "}
                         <i className="pe-7s-cart"></i>{" "}
                         {cartItem !== undefined && cartItem.quantity > 0
-                          ? "Added"
+                          ? "Đã thêm vào giỏ"
                           : "Thêm vào giỏ"}
                       </button>
                     ) : (
@@ -280,8 +293,8 @@ const ProductGridListSingle = ({
                       disabled={wishlistItem !== undefined}
                       title={
                         wishlistItem !== undefined
-                          ? "Added to wishlist"
-                          : "Add to wishlist"
+                          ? "Đã thêm vào danh sách yêu thích"
+                          : "Thêm vào danh sách yêu thích"
                       }
                       onClick={() => addToWishlist(product, addToast)}
                     >
@@ -294,8 +307,8 @@ const ProductGridListSingle = ({
                       disabled={compareItem !== undefined}
                       title={
                         compareItem !== undefined
-                          ? "Added to compare"
-                          : "Add to compare"
+                          ? "Đã thêm vào danh sách so sánh"
+                          : "Thêm vào danh sách so sánh"
                       }
                       onClick={() => addToCompare(product, addToast)}
                     >
@@ -339,7 +352,7 @@ ProductGridListSingle.propTypes = {
   product: PropTypes.object,
   sliderClassName: PropTypes.string,
   spaceBottomClass: PropTypes.string,
-  wishlistItem: PropTypes.object
+  wishlistItem: PropTypes.object,
 };
 
 export default ProductGridListSingle;

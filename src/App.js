@@ -90,7 +90,7 @@ const Checkout = lazy(() => import("./pages/other/Checkout"));
 
 const NotFound = lazy(() => import("./pages/other/NotFound"));
 
-const App = props => {
+const App = (props) => {
   const dispatch = useDispatch();
   const authorizationData = useSelector((state) => state.authorizationData);
   const { username } = authorizationData;
@@ -101,14 +101,14 @@ const App = props => {
           en: require("./translations/english.json"),
           vi: require("./translations/vietnamese.json"),
           fn: require("./translations/french.json"),
-          de: require("./translations/germany.json")
-        }
+          de: require("./translations/germany.json"),
+        },
       })
     );
   });
 
   return (
-    <ToastProvider placement="bottom-left">
+    <ToastProvider placement="top-right">
       <BreadcrumbsProvider>
         <Router>
           <ScrollToTop>
@@ -272,7 +272,7 @@ const App = props => {
                 {/* Shop product pages */}
                 <Route
                   path={process.env.PUBLIC_URL + "/product/:id"}
-                  render={routeProps => (
+                  render={(routeProps) => (
                     <Product {...routeProps} key={routeProps.match.params.id} />
                   )}
                 />
@@ -366,7 +366,7 @@ const App = props => {
 };
 
 App.propTypes = {
-  dispatch: PropTypes.func
+  dispatch: PropTypes.func,
 };
 
 export default connect()(multilanguage(App));

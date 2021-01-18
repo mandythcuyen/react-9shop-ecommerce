@@ -11,7 +11,7 @@ const FooterOne = ({
   spaceBottomClass,
   containerClass,
   extraFooterClass,
-  sideMenu
+  sideMenu,
 }) => {
   const [scroll, setScroll] = useState(0);
   const [top, setTop] = useState(0);
@@ -60,26 +60,26 @@ const FooterOne = ({
           >
             <div className="footer-widget mb-30 ml-30">
               <div className="footer-title">
-                <h3>ABOUT US</h3>
+                <h3>Giới thiệu</h3>
               </div>
               <div className="footer-list">
                 <ul>
                   <li>
-                    <Link to={process.env.PUBLIC_URL + "/about"}>About us</Link>
+                    <Link to={process.env.PUBLIC_URL + "/about"}>Về 9Shop</Link>
                   </li>
                   <li>
                     <Link to={process.env.PUBLIC_URL + "#/"}>
-                      Store location
+                      Địa chỉ cửa hàng
                     </Link>
                   </li>
                   <li>
                     <Link to={process.env.PUBLIC_URL + "/contact"}>
-                      Contact
+                      Liên hệ
                     </Link>
                   </li>
                   <li>
                     <Link to={process.env.PUBLIC_URL + "#/"}>
-                      Orders tracking
+                      Theo dõi đơn hàng
                     </Link>
                   </li>
                 </ul>
@@ -95,24 +95,26 @@ const FooterOne = ({
               className={`${
                 sideMenu
                   ? "footer-widget mb-30 ml-95"
-                  : "footer-widget mb-30 ml-50"
+                  : "footer-widget mb-30 ml-45"
               }`}
             >
               <div className="footer-title">
-                <h3>USEFUL LINKS</h3>
+                <h3>Hỗ trợ khách hàng</h3>
               </div>
               <div className="footer-list">
                 <ul>
                   <li>
-                    <Link to={process.env.PUBLIC_URL + "#/"}>Returns</Link>
+                    <Link to={process.env.PUBLIC_URL + "#/"}>Đổi trả</Link>
                   </li>
                   <li>
                     <Link to={process.env.PUBLIC_URL + "#/"}>
-                      Support Policy
+                      Chính sách hỗ trợ
                     </Link>
                   </li>
                   <li>
-                    <Link to={process.env.PUBLIC_URL + "#/"}>Size guide</Link>
+                    <Link to={process.env.PUBLIC_URL + "#/"}>
+                      Hướng dẫn chọn size
+                    </Link>
                   </li>
                   <li>
                     <Link to={process.env.PUBLIC_URL + "#/"}>FAQs</Link>
@@ -126,13 +128,15 @@ const FooterOne = ({
               sideMenu ? "col-xl-3 col-sm-4" : "col-lg-2 col-sm-6"
             }`}
           >
-            <div className={`${
+            <div
+              className={`${
                 sideMenu
                   ? "footer-widget mb-30 ml-145"
-                  : "footer-widget mb-30 ml-75"
-              }`}>
+                  : "footer-widget mb-30 ml-45"
+              }`}
+            >
               <div className="footer-title">
-                <h3>FOLLOW US</h3>
+                <h3>Theo dõi chúng tôi</h3>
               </div>
               <div className="footer-list">
                 <ul>
@@ -182,7 +186,11 @@ const FooterOne = ({
             }`}
           >
             {/* footer newsletter */}
-            <FooterNewsletter spaceBottomClass="mb-30" spaceLeftClass="ml-70" sideMenu={sideMenu} />
+            <FooterNewsletter
+              spaceBottomClass="mb-30"
+              spaceLeftClass="ml-70"
+              sideMenu={sideMenu}
+            />
           </div>
         </div>
       </div>
@@ -202,7 +210,7 @@ FooterOne.propTypes = {
   extraFooterClass: PropTypes.string,
   sideMenu: PropTypes.bool,
   spaceBottomClass: PropTypes.string,
-  spaceTopClass: PropTypes.string
+  spaceTopClass: PropTypes.string,
 };
 
 export default FooterOne;

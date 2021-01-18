@@ -18,7 +18,7 @@ const Compare = ({
   compareItems,
   addToCart,
   removeFromCompare,
-  currency
+  currency,
 }) => {
   const { pathname } = location;
   const { addToast } = useToasts();
@@ -52,7 +52,7 @@ const Compare = ({
                             <th className="title-column">Thông tin sản phẩm</th>
                             {compareItems.map((compareItem, key) => {
                               const cartItem = cartItems.filter(
-                                item => item.id === compareItem.id
+                                (item) => item.id === compareItem.id
                               )[0];
                               return (
                                 <td className="product-image-title" key={key}>
@@ -128,13 +128,13 @@ const Compare = ({
                                         }
                                         title={
                                           compareItem !== undefined
-                                            ? "Added to cart"
+                                            ? "Đã thêm vào giỏ"
                                             : "Thêm vào giỏ"
                                         }
                                       >
                                         {cartItem !== undefined &&
                                         cartItem.quantity > 0
-                                          ? "Added"
+                                          ? "Đã thêm vào giỏ"
                                           : "Thêm vào giỏ"}
                                       </button>
                                     ) : (
@@ -165,18 +165,27 @@ const Compare = ({
                                   {discountedPrice !== null ? (
                                     <Fragment>
                                       <span className="amount old">
-                                        {currency.currencySymbol +
-                                          finalProductPrice}
+                                        {parseInt(
+                                          finalProductPrice,
+                                          10
+                                        ).toLocaleString() +
+                                          currency.currencySymbol}
                                       </span>
                                       <span className="amount">
-                                        {currency.currencySymbol +
-                                          finalDiscountedPrice}
+                                        {parseInt(
+                                          finalDiscountedPrice,
+                                          10
+                                        ).toLocaleString() +
+                                          currency.currencySymbol}
                                       </span>
                                     </Fragment>
                                   ) : (
                                     <span className="amount">
-                                      {currency.currencySymbol +
-                                        finalProductPrice}
+                                      {parseInt(
+                                        finalProductPrice,
+                                        10
+                                      ).toLocaleString() +
+                                        currency.currencySymbol}
                                     </span>
                                   )}
                                 </td>
@@ -223,9 +232,9 @@ const Compare = ({
                       <i className="pe-7s-shuffle"></i>
                     </div>
                     <div className="item-empty-area__text">
-                      No items found in compare <br />{" "}
+                      Không tìm thấy sản phẩm nào trong danh sách so sánh <br />{" "}
                       <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
-                        Add Items
+                        Thêm sản phẩm
                       </Link>
                     </div>
                   </div>
@@ -245,18 +254,18 @@ Compare.propTypes = {
   compareItems: PropTypes.array,
   currency: PropTypes.object,
   location: PropTypes.object,
-  removeFromCompare: PropTypes.func
+  removeFromCompare: PropTypes.func,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     cartItems: state.cartData,
     compareItems: state.compareData,
-    currency: state.currencyData
+    currency: state.currencyData,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (item, addToast, quantityCount) => {
       dispatch(addToCart(item, addToast, quantityCount));
@@ -264,7 +273,7 @@ const mapDispatchToProps = dispatch => {
 
     removeFromCompare: (item, addToast) => {
       dispatch(removeFromCompare(item, addToast));
-    }
+    },
   };
 };
 

@@ -9,7 +9,7 @@ import { getDiscountPrice } from "../../helpers/product";
 import {
   addToWishlist,
   removeFromWishlist,
-  removeAllFromWishlist
+  removeAllFromWishlist,
 } from "../../redux/actions/wishlistActions";
 import { addToCart } from "../../redux/actions/cartActions";
 import LayoutOne from "../../layouts/LayoutOne";
@@ -22,7 +22,7 @@ const Wishlist = ({
   addToCart,
   wishlistItems,
   removeFromWishlist,
-  removeAllFromWishlist
+  removeAllFromWishlist,
 }) => {
   const { addToast } = useToasts();
   const { pathname } = location;
@@ -76,7 +76,7 @@ const Wishlist = ({
                               discountedPrice * currency.currencyRate
                             ).toFixed(2);
                             const cartItem = cartItems.filter(
-                              item => item.id === wishlistItem.id
+                              (item) => item.id === wishlistItem.id
                             )[0];
                             return (
                               <tr key={key}>
@@ -115,18 +115,27 @@ const Wishlist = ({
                                   {discountedPrice !== null ? (
                                     <Fragment>
                                       <span className="amount old">
-                                        {currency.currencySymbol +
-                                          finalProductPrice}
+                                        {parseInt(
+                                          finalProductPrice,
+                                          10
+                                        ).toLocaleString() +
+                                          currency.currencySymbol}
                                       </span>
                                       <span className="amount">
-                                        {currency.currencySymbol +
-                                          finalDiscountedPrice}
+                                        {parseInt(
+                                          finalDiscountedPrice,
+                                          10
+                                        ).toLocaleString() +
+                                          currency.currencySymbol}
                                       </span>
                                     </Fragment>
                                   ) : (
                                     <span className="amount">
-                                      {currency.currencySymbol +
-                                        finalProductPrice}
+                                      {parseInt(
+                                        finalProductPrice,
+                                        10
+                                      ).toLocaleString() +
+                                        currency.currencySymbol}
                                     </span>
                                   )}
                                 </td>
@@ -143,43 +152,43 @@ const Wishlist = ({
                                     </a>
                                   ) : wishlistItem.variation &&
                                     wishlistItem.variation.length >= 1 ? (
-                                        <Link
-                                          to={`${process.env.PUBLIC_URL}/product/${wishlistItem.id}`}
-                                        >
-                                          Lựa chọn
-                                        </Link>
-                                      ) : wishlistItem.stock &&
-                                        wishlistItem.stock > 0 ? (
-                                          <button
-                                            onClick={() =>
-                                              addToCart(wishlistItem, addToast)
-                                            }
-                                            className={
-                                              cartItem !== undefined &&
-                                                cartItem.quantity > 0
-                                                ? "active"
-                                                : ""
-                                            }
-                                            disabled={
-                                              cartItem !== undefined &&
-                                              cartItem.quantity > 0
-                                            }
-                                            title={
-                                              wishlistItem !== undefined
-                                                ? "Added to cart"
-                                                : "Thêm vào giỏ"
-                                            }
-                                          >
-                                            {cartItem !== undefined &&
-                                              cartItem.quantity > 0
-                                              ? "Added"
-                                              : "Thêm vào giỏ"}
-                                          </button>
-                                        ) : (
-                                          <button disabled className="active">
-                                            Hết hàng
-                                          </button>
-                                        )}
+                                    <Link
+                                      to={`${process.env.PUBLIC_URL}/product/${wishlistItem.id}`}
+                                    >
+                                      Lựa chọn
+                                    </Link>
+                                  ) : wishlistItem.stock &&
+                                    wishlistItem.stock > 0 ? (
+                                    <button
+                                      onClick={() =>
+                                        addToCart(wishlistItem, addToast)
+                                      }
+                                      className={
+                                        cartItem !== undefined &&
+                                        cartItem.quantity > 0
+                                          ? "active"
+                                          : ""
+                                      }
+                                      disabled={
+                                        cartItem !== undefined &&
+                                        cartItem.quantity > 0
+                                      }
+                                      title={
+                                        wishlistItem !== undefined
+                                          ? "Added to cart"
+                                          : "Thêm vào giỏ"
+                                      }
+                                    >
+                                      {cartItem !== undefined &&
+                                      cartItem.quantity > 0
+                                        ? "Added"
+                                        : "Thêm vào giỏ"}
+                                    </button>
+                                  ) : (
+                                    <button disabled className="active">
+                                      Hết hàng
+                                    </button>
+                                  )}
                                 </td>
 
                                 <td className="product-remove">
@@ -220,22 +229,23 @@ const Wishlist = ({
                 </div>
               </Fragment>
             ) : (
-                <div className="row">
-                  <div className="col-lg-12">
-                    <div className="item-empty-area text-center">
-                      <div className="item-empty-area__icon mb-30">
-                        <i className="pe-7s-like"></i>
-                      </div>
-                      <div className="item-empty-area__text">
-                        Không có mục nào được tìm thấy trong danh sách yêu thích <br />{" "}
-                        <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
-                          Add Items
+              <div className="row">
+                <div className="col-lg-12">
+                  <div className="item-empty-area text-center">
+                    <div className="item-empty-area__icon mb-30">
+                      <i className="pe-7s-like"></i>
+                    </div>
+                    <div className="item-empty-area__text">
+                      Không có mục nào được tìm thấy trong danh sách yêu thích{" "}
+                      <br />{" "}
+                      <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+                        Thêm sản phẩm
                       </Link>
-                      </div>
                     </div>
                   </div>
                 </div>
-              )}
+              </div>
+            )}
           </div>
         </div>
       </LayoutOne>
@@ -250,18 +260,18 @@ Wishlist.propTypes = {
   location: PropTypes.object,
   removeAllFromWishlist: PropTypes.func,
   removeFromWishlist: PropTypes.func,
-  wishlistItems: PropTypes.array
+  wishlistItems: PropTypes.array,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     cartItems: state.cartData,
     wishlistItems: state.wishlistData,
-    currency: state.currencyData
+    currency: state.currencyData,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (item, addToast, quantityCount) => {
       dispatch(addToCart(item, addToast, quantityCount));
@@ -272,9 +282,9 @@ const mapDispatchToProps = dispatch => {
     removeFromWishlist: (item, addToast, quantityCount) => {
       dispatch(removeFromWishlist(item, addToast, quantityCount));
     },
-    removeAllFromWishlist: addToast => {
+    removeAllFromWishlist: (addToast) => {
       dispatch(removeAllFromWishlist(addToast));
-    }
+    },
   };
 };
 

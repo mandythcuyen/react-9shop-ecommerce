@@ -211,9 +211,10 @@ const Checkout = ({ location, cartItems, currency }) => {
                       <i className="pe-7s-cash"></i>
                     </div>
                     <div className="item-empty-area__text">
-                      No items found in cart to checkout <br />{" "}
+                      Không tìm thấy sản phẩm nào trong giỏ hàng để thanh toán{" "}
+                      <br />{" "}
                       <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
-                        Shop Now
+                        Thêm sản phẩm
                       </Link>
                     </div>
                   </div>
@@ -230,13 +231,13 @@ const Checkout = ({ location, cartItems, currency }) => {
 Checkout.propTypes = {
   cartItems: PropTypes.array,
   currency: PropTypes.object,
-  location: PropTypes.object
+  location: PropTypes.object,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     cartItems: state.cartData,
-    currency: state.currencyData
+    currency: state.currencyData,
   };
 };
 
