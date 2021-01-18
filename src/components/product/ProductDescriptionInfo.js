@@ -83,12 +83,36 @@ const ProductDescriptionInfo = ({
               {product.variation.map((single, key) => {
                 return (
                   <label
-                    className={`pro-details-color-content--single ${single.color}`}
+                    className={`pro-details-color-content--single ${
+                      single.color === "Trắng"
+                        ? "white"
+                        : single.color === "Xanh da trời"
+                        ? "blue"
+                        : single.color === "Nâu"
+                        ? "maroon"
+                        : single.color === "Đen"
+                        ? "black"
+                        : single.color === "Đỏ"
+                        ? "red"
+                        : "green"
+                    }`}
                     key={key}
                   >
                     <input
                       type="radio"
-                      value={single.color}
+                      value={
+                        single.color === "Trắng"
+                          ? "white"
+                          : single.color === "Xanh da trời"
+                          ? "blue"
+                          : single.color === "Nâu"
+                          ? "maroon"
+                          : single.color === "Đen"
+                          ? "black"
+                          : single.color === "Đỏ"
+                          ? "red"
+                          : "green"
+                      }
                       name="product-color"
                       checked={
                         single.color === selectedProductColor ? "checked" : ""
