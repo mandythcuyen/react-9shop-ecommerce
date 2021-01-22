@@ -3,9 +3,12 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
 import { getDiscountPrice } from "../../../helpers/product";
-
+import { useSelector, useDispatch } from "react-redux";
+import authorizationActions from "../../../redux/actions/authorizationActions";
 const MenuCart = ({ cartData, currency, removeFromCart }) => {
   let cartTotalPrice = 0;
+  const authorizationData = useSelector((state) => state.authorizationData);
+  const { username, isAuthenticated } = authorizationData;
   const { addToast } = useToasts();
   return (
     <div className="shopping-cart-content">
@@ -87,12 +90,21 @@ const MenuCart = ({ cartData, currency, removeFromCart }) => {
             <Link className="default-btn" to={process.env.PUBLIC_URL + "/cart"}>
               xem giỏ hàng
             </Link>
-            <Link
-              className="default-btn"
-              to={process.env.PUBLIC_URL + "/checkout"}
-            >
-              thanh toán
-            </Link>
+            {isAuthenticated ? (
+              <Link
+                className="default-btn"
+                to={process.env.PUBLIC_URL + "/checkout"}
+              >
+                thanh toán
+              </Link>
+            ) : (
+              <Link
+                className="default-btn"
+                to={process.env.PUBLIC_URL + "/login-register"}
+              >
+                thanh toán
+              </Link>
+            )}
           </div>
         </Fragment>
       ) : (

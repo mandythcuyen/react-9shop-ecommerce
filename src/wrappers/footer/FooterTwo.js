@@ -11,7 +11,7 @@ const FooterTwo = ({
   footerTopBackgroundColorClass,
   footerTopSpaceTopClass,
   footerTopSpaceBottomClass,
-  footerLogo
+  footerLogo,
 }) => {
   const [scroll, setScroll] = useState(0);
   const [top, setTop] = useState(0);
@@ -108,7 +108,7 @@ const FooterTwo = ({
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Flone
+                9Shop
               </a>
               . All Rights Reserved.
             </p>
@@ -133,7 +133,7 @@ FooterTwo.propTypes = {
   footerTopSpaceBottomClass: PropTypes.string,
   footerTopSpaceTopClass: PropTypes.string,
   spaceLeftClass: PropTypes.string,
-  spaceRightClass: PropTypes.string
+  spaceRightClass: PropTypes.string,
 };
 
 export default FooterTwo;

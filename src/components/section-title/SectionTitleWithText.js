@@ -11,7 +11,7 @@ const SectionTitleWithText = ({ spaceTopClass, spaceBottomClass }) => {
       <div className="container">
         <div className="welcome-content text-center">
           <h5>Who Are We</h5>
-          <h1>Welcome To Flone</h1>
+          <h1>Welcome To 9Shop</h1>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt labor et dolore magna aliqua. Ut enim ad
@@ -26,7 +26,7 @@ const SectionTitleWithText = ({ spaceTopClass, spaceBottomClass }) => {
 
 SectionTitleWithText.propTypes = {
   spaceBottomClass: PropTypes.string,
-  spaceTopClass: PropTypes.string
+  spaceTopClass: PropTypes.string,
 };
 
 export default SectionTitleWithText;

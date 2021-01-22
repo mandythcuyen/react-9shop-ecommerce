@@ -26,10 +26,10 @@ const Compare = ({
   return (
     <Fragment>
       <MetaTags>
-        <title>Flone | Compare</title>
+        <title>9Shop | Compare</title>
         <meta
           name="description"
-          content="Compare page of flone react minimalist eCommerce template."
+          content="Compare page of 9Shop react minimalist eCommerce template."
         />
       </MetaTags>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
@@ -207,7 +207,43 @@ const Compare = ({
                               );
                             })}
                           </tr>
-
+                          <tr>
+                            <th className="title-column">Chất liệu vải</th>
+                            {compareItems.map((compareItem, key) => {
+                              return (
+                                <td className="product-desc" key={key}>
+                                  <p style={{ fontSize: "14px" }}>
+                                    {compareItem.material
+                                      ? compareItem.material
+                                      : "N/A"}
+                                  </p>
+                                </td>
+                              );
+                            })}
+                          </tr>
+                          <tr>
+                            <th className="title-column">Size</th>
+                            {compareItems.map((compareItem, key) => {
+                              let listSize = [];
+                              compareItem.variation.map((item, key1) => {
+                                item.size.map((size) =>
+                                  listSize.push(size.name)
+                                );
+                              });
+                              console.log(listSize);
+                              let uniq = [...new Set(listSize)];
+                              console.log(uniq);
+                              return (
+                                <td className="product-desc" key={key}>
+                                  <p style={{ fontSize: "14px" }}>
+                                    {uniq.length > 0
+                                      ? uniq.join(" - ").toUpperCase()
+                                      : "N/A"}
+                                  </p>
+                                </td>
+                              );
+                            })}
+                          </tr>
                           <tr>
                             <th className="title-column">Rating</th>
                             {compareItems.map((compareItem, key) => {

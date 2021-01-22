@@ -14,10 +14,10 @@ const BlogDetailsStandard = ({ location }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Flone | Blog Post</title>
+        <title>9Shop | Blog Post</title>
         <meta
           name="description"
-          content="Blog post page of flone react minimalist eCommerce template."
+          content="Blog post page of 9Shop react minimalist eCommerce template."
         />
       </MetaTags>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
@@ -52,7 +52,7 @@ const BlogDetailsStandard = ({ location }) => {
 };
 
 BlogDetailsStandard.propTypes = {
-  location: PropTypes.object
+  location: PropTypes.object,
 };
 
 export default BlogDetailsStandard;

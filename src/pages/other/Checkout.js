@@ -15,10 +15,10 @@ const Checkout = ({ location, cartItems, currency }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Flone | Checkout</title>
+        <title>9Shop | Checkout</title>
         <meta
           name="description"
-          content="Checkout page of flone react minimalist eCommerce template."
+          content="Checkout page of 9Shop react minimalist eCommerce template."
         />
       </MetaTags>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
@@ -50,47 +50,27 @@ const Checkout = ({ location, cartItems, currency }) => {
                       </div>
                       <div className="col-lg-12">
                         <div className="billing-info mb-20">
-                          <label>Tên công ty</label>
-                          <input type="text" />
-                        </div>
-                      </div>
-                      <div className="col-lg-12">
-                        <div className="billing-select mb-20">
-                          <label>Quốc gia</label>
-                          <select>
-                            <option>Chọn 1 quốc gia</option>
-                            <option>Việt Nam</option>
-                            <option>Bahamas</option>
-                            <option>Bahrain</option>
-                            <option>Bangladesh</option>
-                            <option>Barbados</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div className="col-lg-12">
-                        <div className="billing-info mb-20">
                           <label>Só nhà</label>
                           <input
                             className="billing-address"
                             placeholder="Nhập số nhà và tên đường"
                             type="text"
                           />
-                          <input
-                            placeholder="Apartment, suite, unit etc."
-                            type="text"
-                          />
                         </div>
                       </div>
                       <div className="col-lg-12">
                         <div className="billing-info mb-20">
-                          <label>Thành phó</label>
-                          <input type="text" />
+                          <label>Quận/Huyện</label>
+                          <input type="text" placeholder="Nhập quận/huyện" />
                         </div>
                       </div>
                       <div className="col-lg-6 col-md-6">
                         <div className="billing-info mb-20">
-                          <label>State / County</label>
-                          <input type="text" />
+                          <label>Tỉnh/Thành phố</label>
+                          <input
+                            type="text"
+                            placeholder="Nhập tỉnh/thành phố"
+                          />
                         </div>
                       </div>
                       <div className="col-lg-6 col-md-6">

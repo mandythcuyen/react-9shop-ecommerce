@@ -13,10 +13,10 @@ const BlogNoSidebar = ({ location }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Flone | Blog</title>
+        <title>9Shop | Blog</title>
         <meta
           name="description"
-          content="Blog of flone react minimalist eCommerce template."
+          content="Blog of 9Shop react minimalist eCommerce template."
         />
       </MetaTags>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
@@ -49,7 +49,7 @@ const BlogNoSidebar = ({ location }) => {
 };
 
 BlogNoSidebar.propTypes = {
-  location: PropTypes.object
+  location: PropTypes.object,
 };
 
 export default BlogNoSidebar;

@@ -13,10 +13,10 @@ const MyAccount = ({ location }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Flone | My Account</title>
+        <title>9Shop | My Account</title>
         <meta
           name="description"
-          content="Compare page of flone react minimalist eCommerce template."
+          content="Compare page of 9Shop react minimalist eCommerce template."
         />
       </MetaTags>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
@@ -36,7 +36,8 @@ const MyAccount = ({ location }) => {
                       <Card.Header className="panel-heading">
                         <Accordion.Toggle variant="link" eventKey="0">
                           <h3 className="panel-title">
-                            <span>1 .</span> Chỉnh sửa thông tin tài khoản của bạn{" "}
+                            <span>1 .</span> Chỉnh sửa thông tin tài khoản của
+                            bạn{" "}
                           </h3>
                         </Accordion.Toggle>
                       </Card.Header>
@@ -44,32 +45,34 @@ const MyAccount = ({ location }) => {
                         <Card.Body>
                           <div className="myaccount-info-wrapper">
                             <div className="account-info-wrapper">
-                              <h4>Thông tin tài khoản của tôi</h4>
                               <h5>Thông tin cá nhân của bạn</h5>
                             </div>
                             <div className="row">
                               <div className="col-lg-6 col-md-6">
                                 <div className="billing-info">
-                                  <label>Tên</label>
-                                  <input type="text" />
+                                  <label>Họ và tên lót</label>
+                                  <input type="text" value="Nguyễn Văn" />
                                 </div>
                               </div>
                               <div className="col-lg-6 col-md-6">
                                 <div className="billing-info">
-                                  <label>Họ và tên lót</label>
-                                  <input type="text" />
+                                  <label>Tên</label>
+                                  <input type="text" value="Hoàng" />
                                 </div>
                               </div>
                               <div className="col-lg-12 col-md-12">
                                 <div className="billing-info">
                                   <label>Địa chỉ Email</label>
-                                  <input type="email" />
+                                  <input
+                                    type="email"
+                                    value="nguyenhoang@gmail.com"
+                                  />
                                 </div>
                               </div>
                               <div className="col-lg-6 col-md-6">
                                 <div className="billing-info">
                                   <label>Số điện thoại</label>
-                                  <input type="text" />
+                                  <input type="text" value="0918156465" />
                                 </div>
                               </div>
                               {/* <div className="col-lg-6 col-md-6">
@@ -81,7 +84,7 @@ const MyAccount = ({ location }) => {
                             </div>
                             <div className="billing-back-btn">
                               <div className="billing-btn">
-                                <button type="submit">Tiếp tục</button>
+                                <button type="submit">Lưu thay đổi</button>
                               </div>
                             </div>
                           </div>
@@ -100,7 +103,6 @@ const MyAccount = ({ location }) => {
                         <Card.Body>
                           <div className="myaccount-info-wrapper">
                             <div className="account-info-wrapper">
-                              <h4>Thay đổi mật khẩu</h4>
                               <h5>Mật khẩu của bạn</h5>
                             </div>
                             <div className="row">
@@ -119,7 +121,7 @@ const MyAccount = ({ location }) => {
                             </div>
                             <div className="billing-back-btn">
                               <div className="billing-btn">
-                                <button type="submit">Tiếp tục</button>
+                                <button type="submit">Đối mật khẩu</button>
                               </div>
                             </div>
                           </div>
@@ -130,7 +132,8 @@ const MyAccount = ({ location }) => {
                       <Card.Header className="panel-heading">
                         <Accordion.Toggle variant="link" eventKey="2">
                           <h3 className="panel-title">
-                            <span>3 .</span> Sửa đổi các mục trong sổ địa chỉ của bạn{" "}
+                            <span>3 .</span> Sửa đổi các mục trong sổ địa chỉ
+                            của bạn{" "}
                           </h3>
                         </Accordion.Toggle>
                       </Card.Header>
@@ -144,12 +147,9 @@ const MyAccount = ({ location }) => {
                               <div className="row">
                                 <div className="col-lg-6 col-md-6 d-flex align-items-center justify-content-center">
                                   <div className="entries-info text-center">
-                                    <p>Farhana hayder (shuvo) </p>
-                                    <p>hastech </p>
-                                    <p> Road#1 , Block#c </p>
-                                    <p> Rampura. </p>
-                                    <p>Dhaka </p>
-                                    <p>Bangladesh </p>
+                                    <p>24 Trần Hưng Đạo,</p>
+                                    <p>quận 5,</p>
+                                    <p>tp.Hồ Chí Minh</p>
                                   </div>
                                 </div>
                                 <div className="col-lg-6 col-md-6 d-flex align-items-center justify-content-center">
@@ -162,7 +162,7 @@ const MyAccount = ({ location }) => {
                             </div>
                             <div className="billing-back-btn">
                               <div className="billing-btn">
-                                <button type="submit">Tiếp tục</button>
+                                <button type="submit">Thêm địa chỉ</button>
                               </div>
                             </div>
                           </div>
@@ -181,7 +181,7 @@ const MyAccount = ({ location }) => {
 };
 
 MyAccount.propTypes = {
-  location: PropTypes.object
+  location: PropTypes.object,
 };
 
 export default MyAccount;

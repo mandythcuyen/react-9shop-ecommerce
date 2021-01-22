@@ -15,10 +15,10 @@ const Product = ({ location, product }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Flone | Product Page</title>
+        <title>9Shop | Product Page</title>
         <meta
           name="description"
-          content="Product page of flone react minimalist eCommerce template."
+          content="Product page of 9Shop react minimalist eCommerce template."
         />
       </MetaTags>
 
@@ -56,15 +56,15 @@ const Product = ({ location, product }) => {
 
 Product.propTypes = {
   location: PropTypes.object,
-  product: PropTypes.object
+  product: PropTypes.object,
 };
 
 const mapStateToProps = (state, ownProps) => {
   const productId = ownProps.match.params.id;
   return {
     product: state.productData.products.filter(
-      single => single.id === productId
-    )[0]
+      (single) => single.id === productId
+    )[0],
   };
 };
 
